@@ -9,21 +9,83 @@
     <link rel="icon" href="media/favicon.ico" sizes="32x32"/>
 </head>
 <style>
+ 	body {
+		background-color: #d6daf0;
+		height: 100%;
+		overflow: hidden;
+			} 
 	.main {
-		background-color: #ffffff;
 		max-width: 800px;
 		margin-left: auto;
 		margin-right: auto;
 		font-family: Arial, Helvetica, sans-serif;
-		font-size: 1.5em;
+		font-size: 20px;
 		text-align: center;
 		color:black;
 			}
+		.email {
+		position: absolute;
+  		margin-bottom: 0;
+  		padding-bottom: 0;
+  		margin-right: 0;
+  		padding-right: 0;
+		right: 10px;
+		bottom: -5px;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size:10px;
+		text-align: right;
+		color:#eef2ff;
+
+			}
+		.peak {
+		position: absolute;
+  		margin-bottom: 0;
+  		padding-bottom: 0;
+  		margin-left: 0;
+  		padding-left: 0;
+		left: 0px;
+		bottom: -10px;
+		z-index: -1;
+			}
+
+		.neyul {
+		position: absolute;
+  		margin-bottom: 0;
+  		padding-bottom: 0;
+  		margin-left: 0;
+  		padding-left: 0;
+		left: 0px;
+		bottom: -10px;
+		z-index: -1;
+			}
+
+
 </style>
+<script>
+	function getRandomInt(min, max) {
+  	min = Math.ceil(min);
+  	max = Math.floor(max);
+  	return Math.floor(Math.random() * (max - min)) + min;
+		}
+</script>
 <body>
- <div class="main">
+  <div class="main">
 	<p>The "Zester from Leicester".</p>
 	<img height="400" width="auto" src="images/001.jpg" alt="Mark Selby, the Zester from Leicester">
 	<p>lel</p>
- </div>
+  </div>
+
+  <div class="email" style="cursor:text;">
+	<p>markselbyone@pm.me</p>
+  </div>
+
+  <div class="peak">
+	<a href="https://boards.4channel.org/sp/catalog#s=147" target="_blank" rel="noopener noreferrer">
+
+  <script>
+	document.write('<img height="auto" width="20%" src="media/' + getRandomInt(1, 5) + '.png">')
+  </script>
+  </a>
+  </div>
+
 </body>
