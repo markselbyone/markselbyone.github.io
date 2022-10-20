@@ -10,7 +10,7 @@
 </head>
 <style>
  	body {
-		background-color: #d6daf0;
+		<!-- background-color: #d6daf0; -->
 		height: 100%;
 		overflow: hidden;
 			} 
@@ -50,14 +50,36 @@
 
 		.neyul {
 		position: absolute;
-  		margin-bottom: 0;
-  		padding-bottom: 0;
-  		margin-left: 0;
-  		padding-left: 0;
-		left: 0px;
-		bottom: -10px;
-		z-index: -1;
+  		margin-top: 0;
+  		padding-top: 0;
+  		margin-right: 0;
+  		padding-right: 0;
+		right: 0px;
+		top: -120px;
+  		animation: slide 20s;
+  		animation-iteration-count: infinite;
 			}
+
+		@keyframes slide {
+		from {transform: translateY(0px); }
+		40% {transform: translateY(0px); }
+		50% {transform: translateY(120px); }
+		60% {transform: translateY(120px); }
+		70% {transform: translateY(0px); }
+		to {transform: translateY(0px); }
+			}
+
+
+		img.a {
+		width: 400px;
+			}
+
+		@media only screen and (max-width: 500px) {
+ 		img.a {
+    		  width: 50%;
+  				}
+			}
+
 
 
 </style>
@@ -71,7 +93,7 @@
 <body>
   <div class="main">
 	<p>The "Zester from Leicester".</p>
-	<img height="400" width="auto" src="images/001.jpg" alt="Mark Selby, the Zester from Leicester">
+	<img class="a" width="300" src="images/001.jpg" alt="Mark Selby, the Zester from Leicester">
 	<p>lel</p>
   </div>
 
@@ -87,5 +109,7 @@
   </script>
   </a>
   </div>
+
+  <!-- <div class="neyul"><img height="auto" width="30%" src="media/neyul.png"> --></div>
 
 </body>
