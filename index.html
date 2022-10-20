@@ -23,6 +23,7 @@
 		text-align: center;
 		color:black;
 			}
+
 		.email {
 		position: absolute;
   		margin-bottom: 0;
@@ -73,7 +74,7 @@
 		img.a {
 		width: 200px;
 		padding-top: 30px;
-  		animation: hover 3000ms ;
+  		animation: hover 3s ;
 		animation-timing-function: linear;
   		animation-iteration-count: infinite;
 
@@ -81,7 +82,7 @@
 
 		@keyframes hover {
 		from {transform: translateY(0px); }
-		50% {transform: translateY(10px); }
+		50% {transform: translateY(8px); }
 		to {transform: translateY(0px); }
 			}
 
@@ -92,23 +93,22 @@
 		white-space: nowrap;
 		font-family: Arial, Helvetica, sans-serif;
 		font-size:15px;
+		text-align:center;
 
 		}
 
 .loading:after {
-  overflow: hidden;
   display: inline-block;
-  vertical-align: bottom;
-  animation: ellipsis steps(5, end) 3000ms infinite;
-  content: "\2026";
-  width: 0px;
-
+  animation: dotty steps(1,end) 3s infinite;
+  content: '';
 }
 
-@keyframes ellipsis {
-  to {
-    width: 28px;
-  }
+@keyframes dotty {
+  0%   { content: '\a0\a0\a0'; }
+  25%  { content: '.\a0\a0'; }
+  50%  { content: '..\a0'; }
+  75%  { content: '...'; }
+  100% { content: '\a0\a0\a0'; }
 }
 
 		@media only screen and (max-width: 500px) {
@@ -117,9 +117,8 @@
   				}
 			}
 
-
-
 </style>
+
 <script>
 	function getRandomInt(min, max) {
   	min = Math.ceil(min);
@@ -127,10 +126,12 @@
   	return Math.floor(Math.random() * (max - min)) + min;
 		}
 </script>
+
 <body>
   <div class="main">
 	<img class="a" src="images/2.png" alt="Mark Selby, the Zester from Leicester, recovering in his zestpod." title="Mark Selby, the Zester from Leicester, recovering in his zestpod."></div>
-	<div><p class="loading">Zesting</p></div>
+
+	<div class="loading" style="padding-top:20px">Zesting</div>
 
   <div class="email" style="cursor:text;">
 	<p>markselbyone@pm.me</p>
