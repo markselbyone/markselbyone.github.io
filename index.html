@@ -10,7 +10,7 @@
 </head>
 <style>
  	body {
-		background-color: #d6daf0;
+		background-color: #eef2ff;
 		height: 100%;
 		overflow: hidden;
 			} 
@@ -36,8 +36,30 @@
 		font-size:10px;
 		text-align: right;
 		color:#eef2ff;
-
 			}
+
+		.waiting {
+		position: absolute;
+  		margin-bottom: 0;
+  		margin-right: 0;
+		right: 10px;
+		bottom: 10px;
+		padding-top:20px;
+		padding-bottom:20px;
+		padding-left:20px;
+		padding-right:20px;
+		white-space: nowrap;
+		background-color:#d6daf0;
+		border-style: none solid solid none;
+		border-width:thin;
+		border-color:#b7c5d9;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size:15px;
+		color:#789922;
+		text-align:center;
+		cursor:pointer;
+			}
+
 		.peak {
 		position: absolute;
   		margin-bottom: 0;
@@ -48,28 +70,6 @@
 		bottom: -10px;
 		z-index: -1;
 			}
-
-		.neyul {
-		position: absolute;
-  		margin-top: 0;
-  		padding-top: 0;
-  		margin-right: 0;
-  		padding-right: 0;
-		right: 0px;
-		top: -120px;
-  		animation: slide 30s;
-  		animation-iteration-count: infinite;
-			}
-
-		@keyframes slide {
-		from {transform: translateY(0px); }
-		40% {transform: translateY(0px); }
-		50% {transform: translateY(120px); }
-		60% {transform: translateY(120px); }
-		70% {transform: translateY(0px); }
-		to {transform: translateY(0px); }
-			}
-
 
 		img.a {
 		width: 200px;
@@ -87,14 +87,21 @@
 			}
 
 .loading {
-		max-width: 30px;
+		max-width: 100px;
 		margin-left: auto;
 		margin-right: auto;
+		padding-top:15px;
+		padding-bottom:15px;
+		padding-left:15px;
+		padding-right:15px;
 		white-space: nowrap;
+		background-color:#d6daf0;
+		border-style: none solid solid none;
+		border-width:thin;
+		border-color:#b7c5d9;
 		font-family: Arial, Helvetica, sans-serif;
 		font-size:15px;
 		text-align:center;
-
 		}
 
 .loading:after {
@@ -125,27 +132,65 @@
   	max = Math.floor(max);
   	return Math.floor(Math.random() * (max - min)) + min;
 		}
+
+	function waitingFunction() {
+	document.getElementById("w1").style.display="none";
+  	document.getElementById("w2").style.display="block";
+		}
+
+// Set the date we're counting down to
+var countDownDate = new Date("Oct 25, 2022 10:00:00").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+    
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+    
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+  // Output the result in an element with id="countdown"
+  document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+    
+  // If the count down is over, write some text 
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("countdown").innerHTML = "0 seconds";
+  }
+}, 1000);
+
 </script>
 
 <body>
   <div class="main">
 	<img class="a" src="images/2.png" alt="Mark Selby, the Zester from Leicester, recovering in his zestpod." title="Mark Selby, the Zester from Leicester, recovering in his zestpod."></div>
+&nbsp
+	<div class="loading">Zesting</div>
 
-	<div class="loading" style="padding-top:20px">Zesting</div>
+  <!-- <div class="email" style="cursor:text;"><p>markselbyone@pm.me</p></div> -->
 
-  <div class="email" style="cursor:text;">
-	<p>markselbyone@pm.me</p>
-  </div>
+  <div id="w1" style="display:block;"> <button class="waiting" onclick="waitingFunction()">>waiting for snooker?</button></div>
+
+  <div class="waiting" id="w2" style="display:none;color:black;cursor:text;"><p id="countdown" style="display:inline-block;padding:0;margin:0;"></p> until the English Open Qualifiers.</div>
+
+
 
   <div class="peak">
 	<a href="https://boards.4channel.org/sp/catalog#s=147" target="_blank" rel="noopener noreferrer">
 
   <script>
-	document.write('<img height="auto" width="20%" src="media/' + getRandomInt(1, 7) + '.png">')
+	document.write('<img height="auto" width="30%" src="media/' + getRandomInt(1, 7) + '.png">')
   </script>
   </a>
   </div>
 
-  <!-- <div class="neyul"><img height="auto" width="30%" src="media/neyul.png"></div> -->
-
 </body>
+</html>
