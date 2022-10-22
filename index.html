@@ -1,195 +1,106 @@
 <!doctype html>
 <html>
-
 <head>
     <title>The Zester from Leicester Homepage</title>
     <meta name="description" content="Mark Selby">
     <meta name="keywords" content="Mark Selby snooker jester zester">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv=”Content-Security-Policy” content=”default-src https://www.youtube.com”>
+    <link rel="stylesheet" href="stylesheet.css">
     <link rel="icon" href="media/favicon.ico" sizes="32x32"/>
 </head>
-<style>
- 	body {
-		background-color: #eef2ff;
-		height: 100%;
-		overflow: hidden;
-			} 
-	.main {
-		max-width: 800px;
-		margin-left: auto;
-		margin-right: auto;
-		font-family: Arial, Helvetica, sans-serif;
-		font-size: 20px;
-		text-align: center;
-		color:black;
-			}
-
-		.email {
-		position: absolute;
-  		margin-bottom: 0;
-  		padding-bottom: 0;
-  		margin-right: 0;
-  		padding-right: 0;
-		right: 10px;
-		bottom: -5px;
-		font-family: Arial, Helvetica, sans-serif;
-		font-size:10px;
-		text-align: right;
-		color:#eef2ff;
-			}
-
-		.waiting {
-		position: absolute;
-  		margin-bottom: 0;
-  		margin-right: 0;
-		right: 10px;
-		bottom: 10px;
-		padding-top:20px;
-		padding-bottom:20px;
-		padding-left:20px;
-		padding-right:20px;
-		white-space: nowrap;
-		background-color:#d6daf0;
-		border-style: none solid solid none;
-		border-width:thin;
-		border-color:#b7c5d9;
-		font-family: Arial, Helvetica, sans-serif;
-		font-size:15px;
-		color:#789922;
-		text-align:center;
-		cursor:pointer;
-			}
-
-		.peak {
-		position: absolute;
-  		margin-bottom: 0;
-  		padding-bottom: 0;
-  		margin-left: 0;
-  		padding-left: 0;
-		left: 0px;
-		bottom: -10px;
-		z-index: -1;
-			}
-
-		img.a {
-		width: 200px;
-		padding-top: 30px;
-  		animation: hover 3s ;
-		animation-timing-function: linear;
-  		animation-iteration-count: infinite;
-
-			}
-
-		@keyframes hover {
-		from {transform: translateY(0px); }
-		50% {transform: translateY(8px); }
-		to {transform: translateY(0px); }
-			}
-
-.loading {
-		max-width: 100px;
-		margin-left: auto;
-		margin-right: auto;
-		padding-top:15px;
-		padding-bottom:15px;
-		padding-left:15px;
-		padding-right:15px;
-		white-space: nowrap;
-		background-color:#d6daf0;
-		border-style: none solid solid none;
-		border-width:thin;
-		border-color:#b7c5d9;
-		font-family: Arial, Helvetica, sans-serif;
-		font-size:15px;
-		text-align:center;
-		}
-
-.loading:after {
-  display: inline-block;
-  animation: dotty steps(1,end) 3s infinite;
-  content: '';
-}
-
-@keyframes dotty {
-  0%   { content: '\a0\a0\a0'; }
-  25%  { content: '.\a0\a0'; }
-  50%  { content: '..\a0'; }
-  75%  { content: '...'; }
-  100% { content: '\a0\a0\a0'; }
-}
-
-		@media only screen and (max-width: 500px) {
- 		img.a {
-    		  width: 50%;
-  				}
-			}
-
-</style>
-
 <script>
+<!-- SET THE TOURNAMENT DATE -->
+  var countDownDate = new Date("Oct 25, 2022 10:00:00").getTime();
+
+<!-- Update the count down every 1 second -->
+   var x = setInterval(function() {
+<!-- Get today's date and time -->
+   var now = new Date().getTime();
+<!-- Find the distance between now and the count down date -->
+   var distance = countDownDate - now;  
+<!-- Time calculations for days, hours, minutes and seconds -->
+   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+<!-- SET TOURNAMENT NAME TWICE -->
+   document.getElementById("countdown").innerHTML = days + " days until the English Open Qualifiers.";
+   document.getElementById("countdown2").innerHTML = days + " days until the English Open Qualifiers.";
+<!-- Text for if time is less than 1 day -->
+   if (distance < 0) {
+     clearInterval(x);
+     document.getElementById("countdown").innerHTML = "Today:";
+   }
+   }, 1000); 
+</script>
+<script>
+	<!-- Random number generator for peaking.png -->
 	function getRandomInt(min, max) {
   	min = Math.ceil(min);
   	max = Math.floor(max);
   	return Math.floor(Math.random() * (max - min)) + min;
 		}
-
+	
+	<!-- Hide waiting? and show countdown for button click -->
 	function waitingFunction() {
 	document.getElementById("w1").style.display="none";
   	document.getElementById("w2").style.display="block";
 		}
 
-// Set the date we're counting down to
-var countDownDate = new Date("Oct 25, 2022 10:00:00").getTime();
-
-// Update the count down every 1 second
-var x = setInterval(function() {
-
-  // Get today's date and time
-  var now = new Date().getTime();
-    
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
-    
-  // Time calculations for days, hours, minutes and seconds
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    
-  // Output the result in an element with id="countdown"
-  document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
-  + minutes + "m " + seconds + "s ";
-    
-  // If the count down is over, write some text 
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("countdown").innerHTML = "0 seconds";
-  }
-}, 1000);
-
+	<!-- Function for countdown < 1 day -->
+	<!-- Timer delay, if days=0, hide zestpod and loading, show video and play, hide countdown box 1, and show countdown box 2 with mfw text -->
+	function boredFunction() {
+	setTimeout(function(){
+	if (document.getElementById("countdown").innerHTML!="0 days") {
+	document.getElementById("zestpod").style.display="none";
+	document.getElementById("l1").style.display="none";
+	document.getElementById("v1").style.display="block";
+	document.getElementById('v1').play();
+	document.getElementById("w2").style.display="none";
+	document.getElementById("w3").style.display="block";
+		};
+	}, 3000);
+	}
 </script>
 
 <body>
+	<!--  zestpod image -->
   <div class="main">
-	<img class="a" src="images/2.png" alt="Mark Selby, the Zester from Leicester, recovering in his zestpod." title="Mark Selby, the Zester from Leicester, recovering in his zestpod."></div>
+	<img class="a" id="zestpod" src="images/2.png" alt="Mark Selby, the Zester from Leicester, recovering in his zestpod." title="Mark Selby, the Zester from Leicester, recovering in his zestpod.">
+  </div>
+	
+	<!-- waiting video -->
+  <div>
+	 <video class="waitingvid" id="v1" style="display:none;pointer-events: none;" width="480" height="auto" loop>
+	 <source src="videos/1.webm" type="video/webm">
+	 Your browser does not support this video. Sort it out, lad.
+	 </video> 
+  </div>
+
 &nbsp
-	<div class="loading">Zesting</div>
+	<!-- loading text -->
+	<div style="padding-top:30px;position:absolute;left: 50%;margin-right: -50%;transform: translate(-50%, -50%);"><button id="l1" class="loading">Zesting</button></div>
 
-  <!-- <div class="email" style="cursor:text;"><p>markselbyone@pm.me</p></div> -->
+	<!-- waiting for snooker text button -->
+  <div id="w1" style="display:block;line-height:1.8;"><button class="waiting" onclick="waitingFunction();boredFunction()"><span>>waiting for snooker?</span></button></div>
 
-  <div id="w1" style="display:block;"> <button class="waiting" onclick="waitingFunction()">>waiting for snooker?</button></div>
+	<!-- countdown text box -->
+  <div class="waiting" id="w2" style="display:none;color:black;cursor:default;line-height:1.8;"><span style="cursor:text;"><p id="countdown" style="display:inline-block;padding:0;margin:0;"></p><br>&nbsp</span></div>
 
-  <div class="waiting" id="w2" style="display:none;color:black;cursor:text;"><p id="countdown" style="display:inline-block;padding:0;margin:0;"></p> until the English Open Qualifiers.</div>
+	<!-- countdown text box 2 with mfw text -->
+  <div class="waiting" id="w3" style="display:none;color:black;cursor:default;line-height:1.8;"><span style="cursor:text;"><p id="countdown2" style="display:inline-block;padding:0;margin:0;"></p><br><span style="color:#789922;">>mfw</span></span></div>
 
-
+	<!-- peak image with random integer generator and link to 147 search -->
+<!-- adjust numbers for amount of images, max number isnt included -->
 
   <div class="peak">
 	<a href="https://boards.4channel.org/sp/catalog#s=/147/" target="_blank" rel="noopener noreferrer">
-
-  <script>
-	document.write('<img height="auto" width="30%" src="media/' + getRandomInt(1, 7) + '.png">')
-  </script>
-  </a>
+<script>
+document.write('<img height="auto" width="100%" src="media/' + getRandomInt(1, 7) + '.png">')
+</script>
+</a>
   </div>
 
 </body>
