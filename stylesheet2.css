@@ -1,0 +1,80 @@
+html {
+  background: #EEF2FF;
+  font-family: arial,helvetica,sans-serif;
+  font-size: 10pt;}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  overflow: hidden;
+  gap:10px;
+}
+.container.flex-start {
+  justify-content: flex-start;
+}
+.container.center {
+  justify-content: center;
+}
+.item {
+  align-self: flex-start;
+  max-width: 50%;
+  font-size: 1em;
+  line-height: 1.2em;
+  text-align: left;
+  padding: 1.5em 2em;
+  background: #D6DAF0;
+  border: 1px solid #B7C5D9;
+  border-style: none solid solid none;
+  color: black;
+}
+.item.img {
+  font-size: 2rem;
+  line-height: 1rem;
+  text-align: center;
+  padding: 1rem;
+  background: transparent;
+  border: 0px solid #B7C5D9;
+  border-style: none none none none;
+  color: black;
+  margin: -15px;
+}
+.greentext {
+  color: #789922;
+}
+.greentext.fadein {
+	animation: fadein 3s steps(1, end) 1;
+}
+
+@keyframes fadein {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+#waiting {
+    width: 100vw; /* Could also use width: 100%; */
+    height: 100vh;
+    object-fit: cover;
+    position: fixed; /* Change position to absolute if you don't want it to take up the whole page */
+    left: 0px;
+    top: 0px;
+    z-index: -1;
+    pointer-events: none;"
+}
+
+
+@media only screen and (max-width: 500px) {
+
+.item {
+  align-self: flex-start;
+  max-width: 50%;
+  font-size: 0.8em;
+  line-height: 1em;
+  text-align: left;
+  padding: 1.2em 1.6em;
+  background: #D6DAF0;
+  border: 1px solid #B7C5D9;
+  border-style: none solid solid none;
+  color: black;
+}
+}
