@@ -8,6 +8,9 @@ html {
     body, header, footer {
         padding-left: min(0vmin, env(safe-area-inset-left));
         padding-right: min(0vmin, env(safe-area-inset-right));
+        padding-top: min(0vmin, env(safe-area-inset-left));
+        padding-bottom: min(0vmin, env(safe-area-inset-right));
+
     }
 }
 
@@ -41,7 +44,7 @@ html {
   background: transparent;
   border: 0px solid #B7C5D9;
   border-style: none none none none;
-  margin: -15px;
+  margin: -15px !important;
 }
 
 @media only screen and (max-width: 500px) {
@@ -55,6 +58,7 @@ html {
   border: 1px solid #B7C5D9;
   border-style: none solid solid none;
   color: black;
+  margin:20px;
 }
 }
 
