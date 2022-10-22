@@ -38,16 +38,9 @@ html {
 
 @media only screen and (max-width: 500px) {
 .item {
-  align-self: flex-start;
   max-width: 100%;
   line-height: 1em;
-  text-align: left;
   padding: 1em 1.4em;
-  background: #D6DAF0;
-  border: 1px solid #B7C5D9;
-  border-style: none solid solid none;
-  color: black;
-  margin:10px;
 }
 }
 
