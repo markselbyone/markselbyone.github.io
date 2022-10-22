@@ -29,16 +29,27 @@ html {
   color: black;
 }
 .item.img {
-  font-size: 2rem;
-  line-height: 1rem;
-  text-align: center;
-  padding: 1rem;
+  padding: 0rem;
   background: transparent;
   border: 0px solid #B7C5D9;
   border-style: none none none none;
-  color: black;
   margin: -15px;
 }
+
+@media only screen and (max-width: 500px) {
+.item {
+  align-self: flex-start;
+  max-width: 100%;
+  line-height: 1em;
+  text-align: left;
+  padding: 1em 1.4em;
+  background: #D6DAF0;
+  border: 1px solid #B7C5D9;
+  border-style: none solid solid none;
+  color: black;
+}
+}
+
 .greentext {
   color: #789922;
 }
@@ -60,21 +71,4 @@ html {
     top: 0px;
     z-index: -1;
     pointer-events: none;"
-}
-
-
-@media only screen and (max-width: 500px) {
-
-.item {
-  align-self: flex-start;
-  max-width: 50%;
-  font-size: 0.8em;
-  line-height: 1em;
-  text-align: left;
-  padding: 1.2em 1.6em;
-  background: #D6DAF0;
-  border: 1px solid #B7C5D9;
-  border-style: none solid solid none;
-  color: black;
-}
 }
