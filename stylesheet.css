@@ -152,4 +152,7 @@ html {
 	.item.img {
 	  padding: 2rem;
 	}
+	#zestpod {
+		width: 20vh;
+	}
 	}
