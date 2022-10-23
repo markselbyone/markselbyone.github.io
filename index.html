@@ -5,18 +5,19 @@
 	<title>The Zester from Leicester Homepage</title>
 	<meta name="description" content="Mark Selby">
 	<meta name="keywords" content="Mark Selby snooker jester zester">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="icon" href="media/favicon.ico" sizes="32x32"/>
 </head>
 <script>
 	setTimeout(function(){
 		document.getElementById("zesting").style.display = "none"
 		document.getElementById("schedule").style.display = "flex"
-		document.body.style.cursor = "pointer"
 	}, 2000);
 
 	<!-- SET THE TOURNAMENT NAME and DATE -->
 	var tournamentName = "English Open Qualifiers"
-	var tournamentDate = "Oct 28, 2022 10:00:00"
+	var tournamentDate = "Oct 23, 2022 10:00:00"
 	var tournamentSchedule = "https://livescores.worldsnookerdata.com/Sessions/Tournament/14567/betvictor-english-open-2022-qualifiers/"
 	var nexttournamentName = "the Champion of Champions"
 	var nexttournamentDate = "Monday Oct 31st"
@@ -58,6 +59,7 @@
 					document.getElementById("countdown").innerHTML = days + " days and " + hours + " hours until " + tournamentName + ".<br><br><span class='greentext'><span id='tfwpop'>>tfw waiting for snooker</span></span>";
 					}
 				}
+				document.body.style.cursor = "pointer"
 				document.addEventListener('click', open);
 				function open() {
 				document.getElementById("waiting").play()

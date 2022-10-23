@@ -152,7 +152,7 @@ body {
   
   @media only screen and (max-width: 500px) {
 	.container {
-	  max-width: 80%;
+	  max-width: 90%;
 	  }
 	.item {
 	  max-width: 100%;
@@ -169,6 +169,6 @@ body {
 		width: 20vh;
 	}
 	.item.bg {
-		margin-bottom: 35%;
+		margin-bottom: 20%;
 	  }
 	}
