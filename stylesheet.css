@@ -142,7 +142,7 @@ html {
   
   @media only screen and (max-width: 500px) {
 	.item {
-	  max-width: 100%;
+	  max-width: 80%;
 	  line-height: 1em;
 	  padding: 1em 1.4em;
 	}
