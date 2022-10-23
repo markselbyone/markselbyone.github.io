@@ -11,22 +11,23 @@
 	setTimeout(function(){
 		document.getElementById("zesting").style.display = "none"
 		document.getElementById("schedule").style.display = "flex"
+		document.body.style.cursor = "pointer"
 	}, 2000);
 
 	<!-- SET THE TOURNAMENT NAME and DATE -->
-	var tournamentName = "Northern Irish Open"
-	var tournamentDate = "Oct 10, 2022 10:00:00"
-	var tournamentSchedule = "https://livescores.worldsnookerdata.com/Sessions/Tournament/14553/betvictor-northern-ireland-open-2022"
-	var nexttournamentName = "English Open Qualifiers"
-	var nexttournamentDate = "Tuesday Oct 23"
-	var nexttournamentSchedule = "https://livescores.worldsnookerdata.com/Sessions/Tournament/14567/betvictor-english-open-2022-qualifiers/"
+	var tournamentName = "English Open Qualifiers"
+	var tournamentDate = "Oct 28, 2022 10:00:00"
+	var tournamentSchedule = "https://livescores.worldsnookerdata.com/Sessions/Tournament/14567/betvictor-english-open-2022-qualifiers/"
+	var nexttournamentName = "the Champion of Champions"
+	var nexttournamentDate = "Monday Oct 31st"
+	var nexttournamentSchedule = "http://www.snooker.org/res/index.asp?event=1273"
 	var countDownDate = new Date(tournamentDate).getTime();
 	
 	<!-- Update the count down every 1 second -->
-	var x = setInterval(function() {
+	var x = setTimeout(function() {
 	
 		<!-- Get today's date and time -->
-				var now = new Date().getTime();
+		var now = new Date().getTime();
 		
 		<!-- Find the distance between now and the count down date -->
 		var distance = countDownDate - now;  
@@ -46,29 +47,30 @@
 		} else {
 				if (hours == 1) {
 					if (days == 1) {
-						document.getElementById("countdown").innerHTML = days + " day and " + hours + " hour until the " + tournamentName + ".<br><br><span class='greentext'>>waiting for snooker</span>";
+						document.getElementById("countdown").innerHTML = days + " day and " + hours + " hour until " + tournamentName + ".<br><br><span class='greentext'><span id='tfwpop'>>tfw waiting for snooker</span></span>";
 					} else {
-						document.getElementById("countdown").innerHTML = days + " days and " + hours + " hour until the " + tournamentName + ".<br><br><span class='greentext'>>waiting for snooker</span>";
+						document.getElementById("countdown").innerHTML = days + " days and " + hours + " hour until " + tournamentName + ".<br><br><span class='greentext'><span id='tfwpop'>>tfw waiting for snooker</span></span>";
 					}
 				} else {
 					if (days == 1) {
-						document.getElementById("countdown").innerHTML = days + " day and " + hours + " hours until the " + tournamentName + ".<br><br><span class='greentext'>>waiting for snooker</span>";
+						document.getElementById("countdown").innerHTML = days + " day and " + hours + " hours until " + tournamentName + ".<br><br><span class='greentext'><span id='tfwpop'>>tfw waiting for snooker</span></span>";
 					} else {
-					document.getElementById("countdown").innerHTML = days + " days and " + hours + " hours until the " + tournamentName + ".<br><br><span class='greentext'>>waiting for snooker</span>";
+					document.getElementById("countdown").innerHTML = days + " days and " + hours + " hours until " + tournamentName + ".<br><br><span class='greentext'><span id='tfwpop'>>tfw waiting for snooker</span></span>";
 					}
 				}
-			setTimeout(function(){
+				document.addEventListener('click', open);
+				function open() {
+				document.getElementById("waiting").play()
 				document.getElementById("waitingvid").style.display = "block"
 				document.getElementById("waitingscreenshot").style.display = "block"
 				document.getElementById("zestpodimg").style.opacity = "0"
-				document.getElementById("schedule").style.opacity = "0.3"
-			}, 5000);
+				document.getElementById("schedule").style.opacity = "1"
+				document.getElementById("tfwpop").style.opacity = "1"
+				document.body.style.cursor = "auto"
+				document.removeEventListener('click', open);
+			}
 		}
-			
-		
-
-
-	}, 1000); 
+	}, 1); 
 
 	<!-- Random number generator for peaking.png -->
 		function getRandomInt(min, max) {
@@ -82,7 +84,7 @@
 	<!-- hide waiting video-->
 	<div id="waitingvid" class="container center" style="display: none;">
 	<div class="item bg">
-		<video id="waiting" src="videos/1.mp4" type="video/mp4" autoplay loop muted playsinline>
+		<video id="waiting" src="videos/1.mp4" type="video/mp4" loop muted playsinline>
 		</video>
 	 </div>
 	 </div>
@@ -110,7 +112,7 @@
 	<div class="peak">
 		<a href="https://boards.4channel.org/sp/catalog#s=/147/" target="_blank" rel="noopener noreferrer">
 			<script>
-				document.write('<img height="auto" width="100%" src="media/' + getRandomInt(1, 7) + '.png">')
+				document.write('<img height="auto" width="100%" src="media/' + getRandomInt(1, 9) + '.png">')
 			</script>
 		</a>
 	  </div>
