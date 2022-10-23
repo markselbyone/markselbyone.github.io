@@ -1,168 +1,155 @@
-body {
-		background-color: #eef2ff;
-		height: 100%;
-		overflow: hidden;
-			} 
-	.main {
-		max-width: 600px;
-		margin-left: auto;
-		margin-right: auto;
-		font-family: Arial, Helvetica, sans-serif;
-		font-size: 20px;
-		text-align: center;
-		color:black;
-			}
-
-	.waitingvid {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    min-width: 100%;
-    min-height: 100%;
-    transform: translateX(calc((100% - 100vw) / 2));
-		z-index:-2;
-		overflow:hidden;
-			}
-
-		.waiting {
-		position: absolute;
-		overflow: hidden;
-  		margin-bottom: 0;
-  		margin-right: 0;
-		right: 10px;
-		bottom: 10px;
-		padding-top:20px;
-		padding-bottom:20px;
-		padding-left:20px;
-		padding-right:20px;
-		white-space: nowrap;
-		background-color:#d6daf0;
-		border-style: none solid solid none;
-		border-width:thin;
-		border-color:#b7c5d9;
-		font-family: Arial, Helvetica, sans-serif;
-		font-size:15px;
-		color:#789922;
-		text-align:left;
-		cursor:pointer;
-			}
-
-		.peak {
-		position: absolute;
-  		margin-bottom: 0;
-  		padding-bottom: 0;
-  		margin-left: 0;
-  		padding-left: 0;
-		left: 0px;
-		bottom: -10px;
-		z-index: 1;
-		width: 10%;
-			}
-
-		img.a {
-		width:40%;
-		padding-top: 5%;
-  		animation: hover 3s ;
-		animation-timing-function: linear;
-  		animation-iteration-count: infinite;
-			}
-		
-		@keyframes hover {
-		from {transform: translateY(0px); }
-		50% {transform: translateY(8px); }
-		to {transform: translateY(0px); }
-			}
-
-		.loading {
-		max-width: 200px;
-		width:100%;
-		margin-left: auto;
-		margin-right: auto;
-		padding-top:15px;
-		padding-bottom:15px;
-		padding-left:25px;
-		padding-right:25px;
-		white-space: nowrap;
-		background-color:#d6daf0;
-		border-style: none solid solid none;
-		border-width:thin;
-		border-color:#b7c5d9;
-		font-family: Arial, Helvetica, sans-serif;
-		font-size:15px;
-		text-align:center;
-		cursor:default;
-		transform:translateY(20px);
-		}
-
-.loading:after {
-  display: inline-block;
-  animation: dotty steps(1,end) 3s infinite;
-  content: '';
-}
-
-@keyframes dotty {
-  0%   { content: '\a0\a0\a0'; }
-  25%  { content: '.\a0\a0'; }
-  50%  { content: '..\a0'; }
-  75%  { content: '...'; }
-  100% { content: '\a0\a0\a0'; }
-}
-
-.bored {
-		max-width: 300px;
-		margin-left: auto;
-		margin-right: auto;
-		padding-top:15px;
-		padding-bottom:15px;
-		padding-left:15px;
-		padding-right:15px;
-		white-space: nowrap;
-		background-color:#d6daf0;
-		border-style: none solid solid none;
-		border-width:thin;
-		border-color:#b7c5d9;
-		font-family: Arial, Helvetica, sans-serif;
-		font-size:15px;
-		color:black;
-		text-align:center;
-		}
-
-
-		@media only screen and (max-width: 500px) {
- 		img.a {
-    		  width: 50%;
-		  padding-top: 10&;
-  			}
-		.peak {
-		width:20%;
-			}
-		.loading {
-		font-size:12px;
-			}
-		.bored {
-		font-size:12px;
-			}
-		.waiting {
-		font-size:12px;
-		max-width:70%;
-		right: 5px;
-		bottom: 5px;
-		padding-top:15px;
-		padding-bottom:15px;
-		padding-left:15px;
-		padding-right:15px;
-
-			}
-			}
-
-		@media only screen and (max-width: 1000px) {
-		.waitingvid {
-		position:fixed;
-		top:0 !important;
-		padding-top:0;
-		margin-top:0;
-min-width: 350%;
-min-height: 100%;
-transform: translateX(calc((100% - 100vw) / 2));
-
-			}
+html {
+	background: #EEF2FF;
+	font-family: arial,helvetica,sans-serif;
+	font-size: 10pt;
+	overflow: hidden;
+  }
+  .container {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	overflow: hidden;
+	gap:10px;
+	margin-bottom: 0em;
+  }
+  .container.flex-start {
+	justify-content: flex-start;
+  }
+  .container.center {
+	justify-content: center;
+  }
+  .item {
+	align-self: center;
+	max-width: 50%;
+	font-size: 1em;
+	line-height: 1.2em;
+	text-align: left;
+	padding: 1.5em 2em;
+	background: #D6DAF0;
+	border: 1px solid #B7C5D9;
+	border-style: none solid solid none;
+	color: black;
+  }
+  .item.img {
+	align-self: center;
+	padding: 4rem;
+	background: transparent;
+	border: 0px solid #B7C5D9;
+	border-style: none none none none;
+  }
+  .item.bg {
+	padding: 0rem;
+	background: transparent;
+	border: 0px solid #B7C5D9;
+	border-style: none none none none;
+  }
+  
+  .greentext {
+	color: #789922;
+  }
+  .redtext {
+	color: #d00;
+  }
+  a:link {
+	color: #d00;
+  }
+  /* visited link */
+  a:visited {
+	color: #d00;
+  }
+  
+  /* mouse over link */
+  a:hover {
+	color: #d00;
+  }
+  
+  /* selected link */
+  a:active {
+	color: #d00;
+  }
+  
+  .greentext.fadein {
+	  animation: fadein 3s steps(1, end) 1;
+  }
+  
+  @keyframes fadein {
+	0% { opacity: 0; }
+	100% { opacity: 1; }
+  }
+  
+  #zestpod {
+	width: 30vh;
+	animation: hover 3s ;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+  }
+	
+  @keyframes hover {
+	from {transform: translateY(0px); }
+	50% {transform: translateY(8px); }
+	to {transform: translateY(0px); }
+  }
+  
+  
+  .loading {
+	align-self: center;
+  }
+  .loading:after {
+	display: inline-block;
+	animation: dotty steps(1,end) 3s infinite;
+	content: '';
+  }
+  @keyframes dotty {
+	0%   { content: '\a0\a0\a0'; }
+	25%  { content: '.\a0\a0'; }
+	50%  { content: '..\a0'; }
+	75%  { content: '...'; }
+	100% { content: '\a0\a0\a0'; }
+  }
+  
+  #waiting {
+	  width: 100vw; /* Could also use width: 100%; */
+	  height: 100vh;
+	  object-fit: cover;
+	  position: fixed; /* Change position to absolute if you don't want it to take up the whole page */
+	  left: 0px;
+	  top: 0px;
+	  z-index: -1;
+	  pointer-events: none;"
+  }
+  #screenshot {
+	width: 100vw; /* Could also use width: 100%; */
+	height: 100vh;
+	object-fit: cover;
+	position: fixed; /* Change position to absolute if you don't want it to take up the whole page */
+	left: 0px;
+	top: 0px;
+	z-index: -2;
+	pointer-events: none;"
+  }
+  
+  .peak {
+	position: fixed;
+	margin-bottom: 0;
+	padding-bottom: 0;
+	margin-left: 0;
+	padding-left: 0;
+	left: 0px;
+	bottom: -10px;
+	z-index: 1;
+	width: 10%;
+  }
+  
+  @media only screen and (max-width: 500px) {
+	.item {
+	  max-width: 100%;
+	  line-height: 1em;
+	  padding: 1em 1.4em;
+	}
+	.peak {
+	  width: 20%;
+	}
+	.item.img {
+	  padding: 2rem;
+	}
+	}
