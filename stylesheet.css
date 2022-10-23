@@ -1,12 +1,13 @@
 html {
-	background: #EEF2FF;
 	font-family: arial,helvetica,sans-serif;
 	font-size: 10pt;
 	overflow: hidden;
   }
 body {
-	height: 95vh;
-	width: 95vw;
+	background: #EEF2FF;
+	height: 100vh;
+	max-width: 100vw;
+	cursor:auto;
 }
   .container {
 	display: flex;
@@ -167,8 +168,9 @@ body {
 	}
 	#zestpod {
 		width: 20vh;
+		margin-top: 70px;
+		margin-bottom: 70px;
 	}
 	.item.bg {
-		margin-bottom: 20%;
 	  }
 	}

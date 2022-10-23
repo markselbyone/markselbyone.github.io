@@ -63,18 +63,25 @@
 				document.body.style.cursor = "pointer"
 				document.addEventListener('click', open);
 				function open() {
-				document.getElementById("waiting").play()
-				document.getElementById("waitingvid").style.display = "block"
-				document.getElementById("waitingscreenshot").style.display = "block"
-				document.getElementById("zestpodimg").style.opacity = "0"
-				document.getElementById("schedule").style.opacity = "1"
-				document.getElementById("tfwpop").style.opacity = "1"
-				document.body.style.cursor = "auto"
-				document.removeEventListener('click', open);
-			}
-		}
-	}, 1); 
+					document.getElementById("waiting").play()
+					document.getElementById("waitingvid").style.display = "block"
+					document.body.style.background = "#000000"
+					document.getElementById("waitingscreenshot").style.display = "block"
+					document.getElementById("zestpodimg").style.opacity = "0"
+					document.getElementById("schedule").style.opacity = "1"
+					document.getElementById("tfwpop").style.opacity = "1"
+					document.body.style.cursor = "auto"
+					document.removeEventListener('click', open);
+					document.getElementById("schedulerefresh").onclick = refresh
+					document.getElementById("schedulerefresh").style.cursor = "pointer"
 
+				}
+			}
+		
+	}, 2000); 
+	function refresh() {
+		window.location.reload()
+	}
 	<!-- Random number generator for peaking.png -->
 		function getRandomInt(min, max) {
 		  min = Math.ceil(min);
@@ -107,7 +114,7 @@
 	</div>
 
 	<div id="schedule" class="container center" style="display:none;">
-		<div class="item item-2"><span id="countdown"></span><span id="mfw"></span><span id="next"></span></div>
+		<div class="item item-2" id="schedulerefresh"><span id="countdown"></span><span id="mfw"></span><span id="next"></span></div>
 	</div>
 </body>
 
