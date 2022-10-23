@@ -41,7 +41,7 @@
 		if (days <= 0) {
 			document.getElementById("countdown").innerHTML = tournamentName + " today!<br><br>";
 			document.getElementById("mfw").className = "redtext";
-			document.getElementById("mfw").innerHTML = "<a href=&#34" + tournamentSchedule + "&#34 target='_blank' rel='noopener noreferrer'>&gt;&gt;/schedule/</a><br><br>";
+			document.getElementById("mfw").innerHTML = "<a href='" + tournamentSchedule + "'' target='_blank' rel='noopener noreferrer'>&gt;&gt;/schedule/</a><br><br>";
 			document.getElementById("next").innerHTML = "Next: " + nexttournamentName + " on " + nexttournamentDate + ".";
 		} else {
 				if (hours == 1) {
