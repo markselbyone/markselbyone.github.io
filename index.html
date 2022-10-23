@@ -11,14 +11,14 @@
 	setTimeout(function(){
 		document.getElementById("zesting").style.display = "none"
 		document.getElementById("schedule").style.display = "flex"
-	}, 3000);
+	}, 2000);
 
 	<!-- SET THE TOURNAMENT NAME and DATE -->
 	var tournamentName = "Northern Irish Open"
 	var tournamentDate = "Oct 10, 2022 10:00:00"
 	var tournamentSchedule = "https://livescores.worldsnookerdata.com/Sessions/Tournament/14553/betvictor-northern-ireland-open-2022"
 	var nexttournamentName = "English Open Qualifiers"
-	var nexttournamentDate = "Oct 23"
+	var nexttournamentDate = "Tuesday Oct 23"
 	var nexttournamentSchedule = "https://livescores.worldsnookerdata.com/Sessions/Tournament/14567/betvictor-english-open-2022-qualifiers/"
 	var countDownDate = new Date(tournamentDate).getTime();
 	
@@ -46,22 +46,23 @@
 		} else {
 				if (hours == 1) {
 					if (days == 1) {
-						document.getElementById("countdown").innerHTML = days + " day and " + hours + " hour until the " + tournamentName + ".<br><br><span class='greentext'>>mfw</span>";
+						document.getElementById("countdown").innerHTML = days + " day and " + hours + " hour until the " + tournamentName + ".<br><br><span class='greentext'>>waiting for snooker</span>";
 					} else {
-						document.getElementById("countdown").innerHTML = days + " days and " + hours + " hour until the " + tournamentName + ".<br><br><span class='greentext'>>mfw</span>";
+						document.getElementById("countdown").innerHTML = days + " days and " + hours + " hour until the " + tournamentName + ".<br><br><span class='greentext'>>waiting for snooker</span>";
 					}
 				} else {
 					if (days == 1) {
-						document.getElementById("countdown").innerHTML = days + " day and " + hours + " hours until the " + tournamentName + ".<br><br><span class='greentext'>>mfw</span>";
+						document.getElementById("countdown").innerHTML = days + " day and " + hours + " hours until the " + tournamentName + ".<br><br><span class='greentext'>>waiting for snooker</span>";
 					} else {
-					document.getElementById("countdown").innerHTML = days + " days and " + hours + " hours until the " + tournamentName + ".<br><br><span class='greentext'>>mfw</span>";
+					document.getElementById("countdown").innerHTML = days + " days and " + hours + " hours until the " + tournamentName + ".<br><br><span class='greentext'>>waiting for snooker</span>";
 					}
 				}
 			setTimeout(function(){
 				document.getElementById("waitingvid").style.display = "block"
 				document.getElementById("waitingscreenshot").style.display = "block"
 				document.getElementById("zestpodimg").style.opacity = "0"
-			}, 6000);
+				document.getElementById("schedule").style.opacity = "0.3"
+			}, 5000);
 		}
 			
 		

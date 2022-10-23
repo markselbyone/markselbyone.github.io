@@ -96,7 +96,7 @@ html {
   }
   .loading:after {
 	display: inline-block;
-	animation: dotty steps(1,end) 3s infinite;
+	animation: dotty steps(1,end) 2s infinite;
 	content: '';
   }
   @keyframes dotty {
