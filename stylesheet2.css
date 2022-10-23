@@ -1,14 +1,16 @@
 html {
   background: #EEF2FF;
   font-family: arial,helvetica,sans-serif;
-  font-size: 10pt;}
-
+  font-size: 10pt;
+  overflow: hidden;
+}
 .container {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
   overflow: hidden;
   gap:10px;
+  margin-bottom: 0em;
 }
 .container.flex-start {
   justify-content: flex-start;
@@ -17,7 +19,7 @@ html {
   justify-content: center;
 }
 .item {
-  align-self: flex-start;
+  align-self: center;
   max-width: 50%;
   font-size: 1em;
   line-height: 1.2em;
@@ -29,24 +31,43 @@ html {
   color: black;
 }
 .item.img {
+  align-self: center;
+  padding: 4rem;
+  background: transparent;
+  border: 0px solid #B7C5D9;
+  border-style: none none none none;
+}
+.item.bg {
   padding: 0rem;
   background: transparent;
   border: 0px solid #B7C5D9;
   border-style: none none none none;
-  margin: -15px !important;
-}
-
-@media only screen and (max-width: 500px) {
-.item {
-  max-width: 100%;
-  line-height: 1em;
-  padding: 1em 1.4em;
-}
 }
 
 .greentext {
   color: #789922;
 }
+.redtext {
+  color: #d00;
+}
+a:link {
+  color: #d00;
+}
+/* visited link */
+a:visited {
+  color: #d00;
+}
+
+/* mouse over link */
+a:hover {
+  color: #d00;
+}
+
+/* selected link */
+a:active {
+  color: #d00;
+}
+
 .greentext.fadein {
 	animation: fadein 3s steps(1, end) 1;
 }
@@ -54,6 +75,36 @@ html {
 @keyframes fadein {
   0% { opacity: 0; }
   100% { opacity: 1; }
+}
+
+#zestpod {
+  width: 30vh;
+  animation: hover 3s ;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+  
+@keyframes hover {
+  from {transform: translateY(0px); }
+  50% {transform: translateY(8px); }
+  to {transform: translateY(0px); }
+}
+
+
+.loading {
+  align-self: center;
+}
+.loading:after {
+  display: inline-block;
+  animation: dotty steps(1,end) 3s infinite;
+  content: '';
+}
+@keyframes dotty {
+  0%   { content: '\a0\a0\a0'; }
+  25%  { content: '.\a0\a0'; }
+  50%  { content: '..\a0'; }
+  75%  { content: '...'; }
+  100% { content: '\a0\a0\a0'; }
 }
 
 #waiting {
@@ -66,3 +117,36 @@ html {
     z-index: -1;
     pointer-events: none;"
 }
+#screenshot {
+  width: 100vw; /* Could also use width: 100%; */
+  height: 100vh;
+  object-fit: cover;
+  position: fixed; /* Change position to absolute if you don't want it to take up the whole page */
+  left: 0px;
+  top: 0px;
+  z-index: -2;
+  pointer-events: none;"
+}
+
+.peak {
+  position: fixed;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  margin-left: 0;
+  padding-left: 0;
+  left: 0px;
+  bottom: -10px;
+  z-index: 1;
+  width: 10%;
+}
+
+@media only screen and (max-width: 500px) {
+  .item {
+    max-width: 100%;
+    line-height: 1em;
+    padding: 1em 1.4em;
+  }
+  .peak {
+    width: 20%;
+  }
+  }
