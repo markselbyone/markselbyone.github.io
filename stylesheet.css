@@ -4,6 +4,10 @@ html {
 	font-size: 10pt;
 	overflow: hidden;
   }
+body {
+	height: 95vh;
+	width: 95vw;
+}
   .container {
 	display: flex;
 	flex-wrap: wrap;
@@ -164,4 +168,7 @@ html {
 	#zestpod {
 		width: 20vh;
 	}
+	.item.bg {
+		margin-bottom: 35%;
+	  }
 	}
