@@ -11,6 +11,8 @@ html {
 	overflow: hidden;
 	gap:10px;
 	margin-bottom: 0em;
+	margin-left: auto;
+	margin-right: auto;
   }
   .container.flex-start {
 	justify-content: flex-start;
@@ -141,8 +143,11 @@ html {
   }
   
   @media only screen and (max-width: 500px) {
-	.item {
+	.container {
 	  max-width: 80%;
+	  }
+	.item {
+	  max-width: 100%;
 	  line-height: 1em;
 	  padding: 1em 1.4em;
 	}
