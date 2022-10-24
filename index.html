@@ -7,6 +7,7 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="default">
 	<meta name="theme-color" content="#EEF2FF">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"></meta>
+	<meta http-equiv="Content-Security-Policy" content="frame-src https://mega.nz/">
 	<link rel="stylesheet" href="stylesheet.css">
 	<link rel="icon" href="media/favicon.ico" sizes="32x32"/>
 	<link rel="shortcut icon" href="media/favicon.ico">
@@ -16,7 +17,7 @@
 <body>
 	<div id="waitingvid" class="container center" style="display: none;">
 		<div class="item bg">
-			<video id="waiting" src="videos/1.mp4" type="video/mp4" loop muted playsinline></video>
+			<video id="waiting" src="videos/1.mp4" type="video/mp4" muted playsinline></video>
 		</div>
 	</div>
 	<div id="waitingscreenshot" class="container center" style="display: none;">
@@ -118,6 +119,7 @@
 						$('title').text(">waiting for snooker")
 						$('meta[name=apple-mobile-web-app-status-bar-style]').attr('content', 'black-translucent')
 						document.getElementById("waiting").play()
+						document.getElementById("waiting").onended = randomwaitingvid
 						document.getElementById("waitingvid").style.display = "block"
 						document.body.style.background = "#000000"
 						document.getElementById("waitingscreenshot").style.display = "block"
@@ -132,6 +134,7 @@
 						$('title').text(">waiting for snooker")
 						$('meta[name=apple-mobile-web-app-status-bar-style]').attr('content', 'black-translucent')
 						document.getElementById("waiting").play()
+						document.getElementById("waiting").onended = randomwaitingvid
 						document.getElementById("waitingvid").style.display = "block"
 						document.body.style.background = "#000000"
 						document.getElementById("waitingscreenshot").style.display = "block"
@@ -141,6 +144,9 @@
 							document.getElementById("greenrefresh").style.cursor = "pointer"
 						}, 1000);
 				}
+			function randomwaitingvid() {
+				document.getElementById("waitingvid").innerHTML = "<div class='item bg'><iframe id='waiting' frameborder='0' src='https://mega.nz/embed/UDpSzbKb#TICG_H0vxRYYAqfoafDXPctusf--Koir38fO2k3UYHs' allowfullscreen style='z-index: 1;'></iframe></div></div>"
+			}
 		</script>
 	
 </body>
