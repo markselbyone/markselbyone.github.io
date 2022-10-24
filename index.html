@@ -1,135 +1,29 @@
 <html>
 <head>
 	<title>The Zester from Leicester Homepage</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"></meta>
-	<link rel="stylesheet" href="stylesheet.css">
-	<meta name="description" content="Mark Selby">
+	<meta name="description" content="The Home of Snooker">
 	<meta name="keywords" content="Mark Selby snooker jester zester">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="default">
 	<meta name="theme-color" content="#EEF2FF">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"></meta>
+	<link rel="stylesheet" href="stylesheet.css">
+	<link rel="icon" href="media/favicon.ico" sizes="32x32"/>
+	<link rel="shortcut icon" href="media/favicon.ico">
 	<link rel="apple-touch-icon" href="media/custom_icon.png">
-    <link rel="icon" href="media/favicon.ico" sizes="32x32"/>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> 
-</head>
-<script>
-	setTimeout(function(){
-		document.getElementById("zesting").style.display = "none"
-		document.getElementById("schedule").style.display = "flex"
-	}, 2000);
-
-	<!-- SET THE TOURNAMENT NAME and DATE -->
-	var tournamentName = "English Open Qualifiers"
-	var tournamentDate = "Oct 25, 2022 10:00:00"
-	var tournamentSchedule = "https://livescores.worldsnookerdata.com/Sessions/Tournament/14567/betvictor-english-open-2022-qualifiers/"
-	var nexttournamentName = "Champion of Champions"
-	var nexttournamentDate = "Monday Oct 31st"
-	var nexttournamentSchedule = "http://www.snooker.org/res/index.asp?event=1273"
-	var countDownDate = new Date(tournamentDate).getTime();
-	
-	<!-- Update the count down every 1 second -->
-	var x = setTimeout(function() {
-	
-		<!-- Get today's date and time -->
-		var now = new Date().getTime();
-		
-		<!-- Find the distance between now and the count down date -->
-		var distance = countDownDate - now;  
-		
-		<!-- Time calculations for days, hours, minutes and seconds -->
-		var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-		var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-		var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-		var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-		
-		<!-- SET TOURNAMENT START TIME -->
-		if (days <= 0 && hours <= 10) {
-			document.getElementById("countdown").innerHTML = tournamentName + " today!<br><br>";
-			document.getElementById("mfw").innerHTML = "<span class='redtext'><a href='" + tournamentSchedule + "'' target='_blank' rel='noopener noreferrer'>&gt;&gt;/schedule/</a><br><br>";
-			document.getElementById("next").innerHTML = "Next: " + nexttournamentName + " starts " + nexttournamentDate + ".";
-		} else {
-			if (days == 1 && hours <= 10) {
-			document.getElementById("countdown").innerHTML = tournamentName + " tomorrow!<br><br>";
-			document.getElementById("mfw").innerHTML = "<span class='redtext'><a href='" + tournamentSchedule + "'' target='_blank' rel='noopener noreferrer'>&gt;&gt;/schedule/</a></span><br><br><span class='redtext' onclick='waitscheduleFunction()' style='cursor:pointer'>&gt&gt&#47wait&#47</span>"
-			}
-			else {
-				if (hours == 1) {
-					if (days == 1) {
-						document.getElementById("countdown").innerHTML = days + " day and " + hours + " hour until " + tournamentName + ".<br><br>";
-						document.getElementById("mfw").innerHTML = "<span class='redtext' onclick='waitFunction()' style='cursor:pointer'>&gt&gt&#47wait&#47</span>"
-
-					} else {
-						document.getElementById("countdown").innerHTML = days + " days and " + hours + " hour until " + tournamentName + ".<br><br>";
-						document.getElementById("mfw").innerHTML = "<span class='redtext' onclick='waitFunction()' style='cursor:pointer'>&gt&gt&#47wait&#47</span>"
-
-					}
-				} else {
-					if (days == 1) {
-						document.getElementById("countdown").innerHTML = days + " day and " + hours + " hours until " + tournamentName + ".<br><br>";
-						document.getElementById("mfw").innerHTML = "<span id='tfwpop'><span class='redtext' onclick='waitFunction()' style='cursor:pointer'>&gt&gt&#47wait&#47</span></span>"
-					} else {
-						document.getElementById("countdown").innerHTML = days + " days and " + hours + " hours until " + tournamentName + ".<br><br>";
-						document.getElementById("mfw").innerHTML = "<span class='redtext' onclick='waitFunction()' style='cursor:pointer'>&gt&gt&#47wait&#47</span>"
-
-					}
-				}
-			}
-			}
-		
-	}, 2000); 
-	function refresh() {
-		window.location.reload()
-	}
-	<!-- Random number generator for peaking.png -->
-		function getRandomInt(min, max) {
-		  min = Math.ceil(min);
-		  max = Math.floor(max);
-		  return Math.floor(Math.random() * (max - min)) + min;
-		}
-		
-		function waitFunction() {
-					document.getElementById("mfw").innerHTML = "<span class='greentext'>&gttfw waiting for snooker</span>"
-					$('title').text(">waiting for snooker")
-    				$('meta[name=apple-mobile-web-app-status-bar-style]').attr('content', 'black-translucent')
-					document.getElementById("waiting").play()
-					document.getElementById("waitingvid").style.display = "block"
-					document.body.style.background = "#000000"
-					document.getElementById("waitingscreenshot").style.display = "block"
-					document.getElementById("zestpodimg").style.opacity = "0"
-					setTimeout(function(){
-						document.getElementById("schedulerefresh").onclick = refresh
-						document.getElementById("schedulerefresh").style.cursor = "pointer"
-					}, 1000);
-			}
-		function waitscheduleFunction() {
-					document.getElementById("mfw").innerHTML = "<span class='redtext'><a href='" + tournamentSchedule + "'' target='_blank' rel='noopener noreferrer'>&gt;&gt;/schedule/</a></span><br><br><span class='greentext'>&gttfw waiting for snooker</span>"
-					$('title').text(">waiting for snooker")
-    				$('meta[name=apple-mobile-web-app-status-bar-style]').attr('content', 'black-translucent')
-					document.getElementById("waiting").play()
-					document.getElementById("waitingvid").style.display = "block"
-					document.body.style.background = "#000000"
-					document.getElementById("waitingscreenshot").style.display = "block"
-					document.getElementById("zestpodimg").style.opacity = "0"
-					setTimeout(function(){
-						document.getElementById("schedulerefresh").onclick = refresh
-						document.getElementById("schedulerefresh").style.cursor = "pointer"
-					}, 1000);
-			}
-	</script>
-	
+</head>	
 <body>
-	<!-- hide waiting video-->
 	<div id="waitingvid" class="container center" style="display: none;">
-	<div class="item bg">
-		<video id="waiting" src="videos/1.mp4" type="video/mp4" loop muted playsinline>
-		</video>
-	 </div>
-	 </div>
-	 <div id="waitingscreenshot" class="container center" style="display: none;">
+		<div class="item bg">
+			<video id="waiting" src="videos/1.mp4" type="video/mp4" loop muted playsinline></video>
+		</div>
+	</div>
+	<div id="waitingscreenshot" class="container center" style="display: none;">
 		<div class="item bg">
 			<img id="screenshot" src="videos/1.png"></img>
 		 </div>
-		 </div>
+	</div>
 
 	<div id="zestpodimg" class="container center">
 		<div class="item img">
@@ -143,8 +37,113 @@
 	<div id="schedule" class="container center" style="display:none;">
 		<div class="item item-2" id="schedulerefresh"><span id="countdown"></span><span id="mfw"></span><span id="next"></span></div>
 	</div>
-</body>
 
+	<script>
+		setTimeout(function(){
+			document.getElementById("zesting").style.display = "none"
+			document.getElementById("schedule").style.display = "flex"
+		}, 2000);
+	
+<!-- SET THE TOURNAMENT NAME and DATE -->
+		var tournamentName = "English Open Qualifiers"
+		var tournamentDate = "Oct 25, 2022 10:00:00"
+		var tournamentSchedule = "https://livescores.worldsnookerdata.com/Sessions/Tournament/14567/betvictor-english-open-2022-qualifiers/"
+		var nexttournamentName = "Champion of Champions"
+		var nexttournamentDate = "Monday Oct 31st"
+		var nexttournamentSchedule = "http://www.snooker.org/res/index.asp?event=1273"
+		var countDownDate = new Date(tournamentDate).getTime();
+		
+		<!-- Update the count down every 1 second -->
+		var x = setTimeout(function() {
+		
+			<!-- Get today's date and time -->
+			var now = new Date().getTime();
+			
+			<!-- Find the distance between now and the count down date -->
+			var distance = countDownDate - now;  
+			
+			<!-- Time calculations for days, hours, minutes and seconds -->
+			var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+			var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+			var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+			
+			<!-- SET TOURNAMENT START TIME -->
+			if (days <= 0 && hours <= 10) {
+				document.getElementById("countdown").innerHTML = tournamentName + " today!<br><br>";
+				document.getElementById("mfw").innerHTML = "<span class='redtext'><a href='" + tournamentSchedule + "'' target='_blank' rel='noopener noreferrer'>&gt;&gt;/schedule/</a><br><br>";
+				document.getElementById("next").innerHTML = "Next: " + nexttournamentName + " starts " + nexttournamentDate + ".";
+			} else {
+				if ((days == 1 && hours <= 10) || (days <= 1 && hours >= 10)) {
+				document.getElementById("countdown").innerHTML = tournamentName + " tomorrow!<br><br>";
+				document.getElementById("mfw").innerHTML = "<span class='redtext'><a href='" + tournamentSchedule + "'' target='_blank' rel='noopener noreferrer'>&gt;&gt;/schedule/</a></span><br><br><span class='redtext' onclick='waitscheduleFunction()' style='cursor:pointer'>&gt&gt&#47wait&#47</span>"
+				}
+				else {
+					if (hours == 1) {
+						if (days == 1) {
+							document.getElementById("countdown").innerHTML = days + " day and " + hours + " hour until " + tournamentName + ".<br><br>";
+							document.getElementById("mfw").innerHTML = "<span class='redtext' onclick='waitFunction()' style='cursor:pointer'>&gt&gt&#47wait&#47</span>"
+	
+						} else {
+							document.getElementById("countdown").innerHTML = days + " days and " + hours + " hour until " + tournamentName + ".<br><br>";
+							document.getElementById("mfw").innerHTML = "<span class='redtext' onclick='waitFunction()' style='cursor:pointer'>&gt&gt&#47wait&#47</span>"
+	
+						}
+					} else {
+						if (days == 1) {
+							document.getElementById("countdown").innerHTML = days + " day and " + hours + " hours until " + tournamentName + ".<br><br>";
+							document.getElementById("mfw").innerHTML = "<span id='tfwpop'><span class='redtext' onclick='waitFunction()' style='cursor:pointer'>&gt&gt&#47wait&#47</span></span>"
+						} else {
+							document.getElementById("countdown").innerHTML = days + " days and " + hours + " hours until " + tournamentName + ".<br><br>";
+							document.getElementById("mfw").innerHTML = "<span class='redtext' onclick='waitFunction()' style='cursor:pointer'>&gt&gt&#47wait&#47</span>"
+	
+						}
+					}
+				}
+				}
+			
+		}, 2000); 
+		function refresh() {
+			window.location.reload()
+		}
+		<!-- Random number generator for peaking.png -->
+			function getRandomInt(min, max) {
+			  min = Math.ceil(min);
+			  max = Math.floor(max);
+			  return Math.floor(Math.random() * (max - min)) + min;
+			}
+			
+			function waitFunction() {
+						document.getElementById("mfw").innerHTML = "<span class='greentext'>&gttfw waiting for snooker</span>"
+						$('title').text(">waiting for snooker")
+						$('meta[name=apple-mobile-web-app-status-bar-style]').attr('content', 'black-translucent')
+						document.getElementById("waiting").play()
+						document.getElementById("waitingvid").style.display = "block"
+						document.body.style.background = "#000000"
+						document.getElementById("waitingscreenshot").style.display = "block"
+						document.getElementById("zestpodimg").style.opacity = "0"
+						setTimeout(function(){
+							document.getElementById("schedulerefresh").onclick = refresh
+							document.getElementById("schedulerefresh").style.cursor = "pointer"
+						}, 1000);
+				}
+			function waitscheduleFunction() {
+						document.getElementById("mfw").innerHTML = "<span class='redtext'><a href='" + tournamentSchedule + "'' target='_blank' rel='noopener noreferrer'>&gt;&gt;/schedule/</a></span><br><br><span id='greenrefresh' class='greentext'>&gttfw waiting for snooker</span>"
+						$('title').text(">waiting for snooker")
+						$('meta[name=apple-mobile-web-app-status-bar-style]').attr('content', 'black-translucent')
+						document.getElementById("waiting").play()
+						document.getElementById("waitingvid").style.display = "block"
+						document.body.style.background = "#000000"
+						document.getElementById("waitingscreenshot").style.display = "block"
+						document.getElementById("zestpodimg").style.opacity = "0"
+						setTimeout(function(){
+							document.getElementById("greenrefresh").onclick = refresh
+							document.getElementById("greenrefresh").style.cursor = "pointer"
+						}, 1000);
+				}
+		</script>
+	
+</body>
 <footer>
 	<div class="peak">
 		<a href="https://boards.4channel.org/sp/catalog#s=/147/" target="_blank" rel="noopener noreferrer">
