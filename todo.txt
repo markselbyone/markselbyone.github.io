@@ -1,5 +1,0 @@
-Image backup for video.
-
-Change loading from button to text.
-
-Video/image for when >waiting is over.
