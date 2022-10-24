@@ -28,7 +28,7 @@
 
 	<div id="zestpodimg" class="container center">
 		<div class="item img">
-			<img id="zestpod" src="images/2.png" alt="Mark Selby, the Zester from Leicester, recovering in his zestpod." title="Mark Selby, the Zester from Leicester, recovering in his zestpod.">
+			<img id="zestpod" src="images/2.png">
 		</div>
 	</div>
 	<div id="zesting" class="container center">
@@ -49,11 +49,11 @@
 		var tournamentName = "English Open Qualifiers"
 		var tournamentDate = "Oct 25, 2022 10:00:00"
 		var tournamentSchedule = "https://livescores.worldsnookerdata.com/Sessions/Tournament/14567/betvictor-english-open-2022-qualifiers/"
-		var nexttournamentName = "Champion of Champions"
+		var nexttournamentName = "<span class='redtext'><a href='http://www.snooker.org/res/index.asp?event=1273' target='_blank' rel='noopener noreferrer'>>>Champion of Champions</a></span>"
 		var nexttournamentDate = "Monday Oct 31st"
 		var nexttournamentSchedule = "http://www.snooker.org/res/index.asp?event=1273"
 		var countDownDate = new Date(tournamentDate).getTime();
-		
+			
 		<!-- Update the count down every 1 second -->
 		var x = setTimeout(function() {
 		
@@ -145,7 +145,7 @@
 						}, 1000);
 				}
 			function randomwaitingvid() {
-				document.getElementById("waitingvid").innerHTML = "<div class='item bg'><iframe id='waiting' frameborder='0' src='https://mega.nz/embed/UDpSzbKb#TICG_H0vxRYYAqfoafDXPctusf--Koir38fO2k3UYHs' allowfullscreen style='z-index: 1;'></iframe></div></div>"
+				document.getElementById("waitingvid").innerHTML = "<div class='item bg'><video id='waiting' src='videos/golfing_jester_bantered_fouldsy.mp4' type='video/mp4' controls playsinline style='z-index: 1;'></video></div>"
 			}
 		</script>
 	
