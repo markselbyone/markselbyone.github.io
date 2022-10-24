@@ -56,6 +56,7 @@ body {
   }
   .redtext {
 	color: #d00;
+	text-decoration: underline;
   }
   a:link {
 	color: #d00;
@@ -135,10 +136,7 @@ body {
 	pointer-events: none;"
   }
 
-  #tfwpop {
-	opacity:0;
-  }
-  
+ 
   .peak {
 	position: fixed;
 	margin-bottom: 0;
@@ -171,6 +169,4 @@ body {
 		margin-top: 70px;
 		margin-bottom: 70px;
 	}
-	.item.bg {
-	  }
 	}
