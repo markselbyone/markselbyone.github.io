@@ -70,12 +70,12 @@
 			var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 			
 			<!-- SET TOURNAMENT START TIME -->
-			if (days <= 0 && hours <= 10) {
+			if (days <= 0 && hours < 10) {
 				document.getElementById("countdown").innerHTML = tournamentName + " today!<br><br>";
 				document.getElementById("mfw").innerHTML = "<span class='redtext'><a href='" + tournamentSchedule + "'' target='_blank' rel='noopener noreferrer'>&gt;&gt;/schedule/</a><br><br>";
 				document.getElementById("next").innerHTML = "Next: " + nexttournamentName + " starts " + nexttournamentDate + ".";
 			} else {
-				if ((days == 1 && hours <= 10) || (days <= 1 && hours >= 10)) {
+				if ((days == 1 && hours < 10) || (days <= 1 && hours >= 10)) {
 				document.getElementById("countdown").innerHTML = tournamentName + " tomorrow!<br><br>";
 				document.getElementById("mfw").innerHTML = "<span class='redtext'><a href='" + tournamentSchedule + "'' target='_blank' rel='noopener noreferrer'>&gt;&gt;/schedule/</a></span><br><br><span class='redtext' onclick='waitscheduleFunction()' style='cursor:pointer'>&gt&gt&#47wait&#47</span>"
 				}
@@ -151,10 +151,14 @@
 	
 </body>
 <footer>
-	<div class="peak">
+	<div class="peak" id="peakingimage">
 		<a href="https://boards.4channel.org/sp/catalog#s=/147/" target="_blank" rel="noopener noreferrer">
 			<script>
-				document.write('<img height="auto" width="100%" src="media/' + getRandomInt(1, 11) + '.png">')
+				var peaknumber = getRandomInt(1,18)
+				document.write('<img height="auto" width="100%" src="media/' + peaknumber + '.png">')
+				if (peaknumber == 17){
+					document.getElementById("peakingimage").style.top = "-10"
+				}
 			</script>
 		</a>
 	  </div>
