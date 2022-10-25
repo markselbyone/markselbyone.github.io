@@ -1,7 +1,7 @@
 html {
 	font-family: arial,helvetica,sans-serif;
 	font-size: 10pt;
-	overflow: hidden;
+	overflow: visible;
   }
 body {
 	background: #EEF2FF;
@@ -14,7 +14,7 @@ body {
 	flex-wrap: wrap;
 	flex-direction: column;
 	overflow: hidden;
-	gap:10px;
+	gap:5px;
 	margin-bottom: 0em;
 	margin-left: auto;
 	margin-right: auto;
@@ -27,7 +27,7 @@ body {
   }
   .item {
 	align-self: center;
-	max-width: 50%;
+	max-width: 70%;
 	font-size: 1em;
 	line-height: 1.2em;
 	text-align: left;
@@ -35,6 +35,31 @@ body {
 	background: #D6DAF0;
 	border: 1px solid #B7C5D9;
 	border-style: none solid solid none;
+	color: black;
+  }
+  .item.outer {
+	flex-direction: row;
+	align-self: flex-start;
+	max-width: 70%;
+	font-size: 1em;
+	line-height: 1em;
+	text-align: left;
+	padding: 0.8em 1em;
+	background: #D6DAF0;
+	border: 1px solid #B7C5D9;
+	border-style: none solid solid none;
+	color: black;
+  }
+  .item.inner {
+	align-self: flex-start;
+	max-width: 100%;
+	font-size: 1em;
+	line-height: 1.2em;
+	text-align: left;
+	padding: 1em 1em;
+	background: #D6DAF0;
+	border: 1px solid #B7C5D9;
+	border-style: none none none none;
 	color: black;
   }
   .item.img {
@@ -50,7 +75,9 @@ body {
 	border: 0px solid #B7C5D9;
 	border-style: none none none none;
   }
-  
+  .yanimg:hover {
+		width: 100%;
+  }
   .greentext {
 	color: #789922;
   }
@@ -87,17 +114,31 @@ body {
   
   #zestpod {
 	width: 30vh;
+	cursor: pointer;
 	animation: hover 3s ;
 	animation-timing-function: linear;
 	animation-iteration-count: infinite;
   }
 	
   @keyframes hover {
-	from {transform: translateY(0px); }
+	from {transform: translateY(1px); }
 	50% {transform: translateY(8px); }
 	to {transform: translateY(0px); }
   }
   
+  #zestypod {
+	width: 30vh;
+	animation: zestup 0.075s ;
+	animation-timing-function: linear;
+	animation-iteration-count: 10;
+  }
+	
+  @keyframes zestup {
+	from {transform: translateY(0px); }
+	50% {transform: translateY(8px); }
+	to {transform: translateY(0px); }
+  }
+
   
   .loading {
 	align-self: center;
@@ -122,7 +163,7 @@ body {
 	  position: fixed; /* Change position to absolute if you don't want it to take up the whole page */
 	  left: 0px;
 	  top: 0px;
-	  z-index: 0;
+	  z-index: -1;
   }
   #screenshot {
 	width: 100vw; /* Could also use width: 100%; */
@@ -132,6 +173,7 @@ body {
 	left: 0px;
 	top: 0px;
 	z-index: -2;
+	pointer-events: none;"
   }
 
  
@@ -142,7 +184,6 @@ body {
 	margin-left: 0;
 	padding-left: 0;
 	left: 0px;
-	bottom: -10px;
 	z-index: 1;
 	width: 10%;
   }
@@ -164,7 +205,12 @@ body {
 	}
 	#zestpod {
 		width: 20vh;
-		margin-top: 70px;
-		margin-bottom: 70px;
+		margin-top: 20%;
+		margin-bottom: 10px;
+	}
+	#zestypod {
+		width: 20vh;
+		margin-top: 20%;
+		margin-bottom: 10px;
 	}
 	}

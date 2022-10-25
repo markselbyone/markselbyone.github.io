@@ -7,7 +7,7 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="default">
 	<meta name="theme-color" content="#EEF2FF">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"></meta>
-	<meta http-equiv="Content-Security-Policy" content="frame-src https://mega.nz/">
+	<meta http-equiv="Content-Security-Policy" content="frame-src https://archive.org/">
 	<link rel="stylesheet" href="stylesheet.css">
 	<link rel="icon" href="media/favicon.ico" sizes="32x32"/>
 	<link rel="shortcut icon" href="media/favicon.ico">
@@ -15,17 +15,6 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> 
 </head>	
 <body>
-	<div id="waitingvid" class="container center" style="display: none;">
-		<div class="item bg">
-			<video id="waiting" src="videos/1.mp4" type="video/mp4" muted playsinline></video>
-		</div>
-	</div>
-	<div id="waitingscreenshot" class="container center" style="display: none;">
-		<div class="item bg">
-			<img id="screenshot" src="videos/1.png"></img>
-		 </div>
-	</div>
-
 	<div id="zestpodimg" class="container center">
 		<div class="item img">
 			<img id="zestpod" src="images/2.png" onclick="rezestFunction()">
@@ -34,7 +23,6 @@
 	<div id="zesting" class="container center">
 		<div class="item loading">Zesting</div>
 	</div>
-
 	<div id="schedule" class="container center" style="display:none;">
 		<div class="item item-2" id="schedulerefresh"><span id="countdown"></span><span id="mfw"></span><span id="next"></span></div>
 	</div>
@@ -177,8 +165,45 @@
 					document.getElementById("zestypod").id = "zestpod"
 				}, 300);			}
 			window.onload = loadFunction;
-		</script>
+		
+			
+		document.addEventListener("DOMContentLoaded", function(event) {
+		var button = document.getElementById('zestpod');
+		var count = 0;
+
+		button.addEventListener('click', function(e) {
+			e.preventDefault();
+			count++;
+			if(count == 10){
+					document.getElementById("schedulerefresh").innerHTML = "<span>Watch an <span class='redtext' onclick='adFunction()' style='cursor:pointer;'>>>ad</span> to support the site?</span>"
+				}
+			}, false); 
+		});
+
+		function adFunction() {
+			var adnumber = getRandomInt(1,4)
+			document.getElementById("zestpodimg").innerHTML = "<div class='item img'><video id='advideo' src='videos/ad" + adnumber + ".mp4' style='width: 30vh;'></div>"
+			document.getElementById("advideo").play()
+			document.getElementById("schedulerefresh").innerHTML = "<span>Let's join the snooker metaverse together!</span>"
+			document.getElementById("advideo").onended = function() {window.location.reload()}
+		}
+	</script>
 	
+	<div id="waitingvid" class="container center" style="display: none;">
+		<div class="item bg">
+			<img id="loopybg" src="media/loopybg.jpg">
+		</div>
+	</div>
+	<div id="waitingvid" class="container center" style="display: none;">
+		<div class="item bg">
+			<video id="waiting" src="videos/1.mp4" type="video/mp4" muted playsinline></video>
+		</div>
+	</div>
+	<div id="waitingscreenshot" class="container center" style="display: none;">
+		<div class="item bg">
+			<img id="screenshot" src="videos/1.png"></img>
+		 </div>
+	</div>
 </body>
 <footer>
 	<div class="peak" id="peakingframe">
