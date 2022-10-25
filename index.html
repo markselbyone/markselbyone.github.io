@@ -7,7 +7,7 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="default">
 	<meta name="theme-color" content="#EEF2FF">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"></meta>
-	<meta http-equiv="Content-Security-Policy" content="frame-src https://archive.org/">
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://ajax.googleapis.com/; media-src 'self'; frame-src 'self' https://archive.org/">
 	<link rel="stylesheet" href="stylesheet.css">
 	<link rel="icon" href="media/favicon.ico" sizes="32x32"/>
 	<link rel="shortcut icon" href="media/favicon.ico">
@@ -189,11 +189,6 @@
 		}
 	</script>
 
-	<div id="waitingvid" class="container center" style="display: none;">
-		<div class="item bg">
-			<img id="loopybg" src="media/loopybg.jpg">
-		</div>
-	</div>
 	<div id="waitingvid" class="container center" style="display: none;">
 		<div class="item bg">
 			<video id="waiting" src="videos/1.mp4" type="video/mp4" muted playsinline></video>
