@@ -28,7 +28,7 @@
 
 	<div id="zestpodimg" class="container center">
 		<div class="item img">
-			<img id="zestpod" src="images/2.png">
+			<img id="zestpod" src="images/2.png" onclick="rezestFunction()">
 		</div>
 	</div>
 	<div id="zesting" class="container center">
@@ -72,7 +72,7 @@
 			<!-- SET TOURNAMENT START TIME -->
 			if (days <= 0 && hours < 10) {
 				document.getElementById("countdown").innerHTML = tournamentName + " today!<br><br>";
-				document.getElementById("mfw").innerHTML = "<span class='redtext'><a href='" + tournamentSchedule + "'' target='_blank' rel='noopener noreferrer'>&gt;&gt;/schedule/</a><br><br>";
+				document.getElementById("mfw").innerHTML = "<span class='redtext'><a href='" + tournamentSchedule + "'' target='_blank' rel='noopener noreferrer'>&gt;&gt;schedule</a><br><br>";
 				document.getElementById("next").innerHTML = "Next: " + nexttournamentName + " starts " + nexttournamentDate + ".";
 			} else {
 				if ((days == 1 && hours < 10) || (days <= 1 && hours >= 10)) {
@@ -147,19 +147,42 @@
 			function randomwaitingvid() {
 				document.getElementById("waitingvid").innerHTML = "<div class='item bg'><video id='waiting' src='videos/golfing_jester_bantered_fouldsy.mp4' type='video/mp4' controls playsinline style='z-index: 1;'></video></div>"
 			}
+
+
+			<!-- functions for on load and refresh -->
+			function loadFunction() {
+				var peaknumber = getRandomInt(1,18)
+				document.getElementById('peakingimage').innerHTML = '<img height="auto" width="100%" src="media/' + peaknumber + '.png">'
+				if (peaknumber == 17){
+					document.getElementById("peakingframe").style.bottom = ""
+					document.getElementById("peakingframe").style.top = "-10"
+				} else {
+					document.getElementById("peakingframe").style.bottom = "-10"
+					document.getElementById("peakingframe").style.top = ""
+				}
+				document.getElementById("zestpod").id = "zestpod"
+			}
+			function rezestFunction() {
+				var peaknumber = getRandomInt(1,18)
+				document.getElementById('peakingimage').innerHTML = '<img height="auto" width="100%" src="media/' + peaknumber + '.png">'
+				if (peaknumber == 17){
+					document.getElementById("peakingframe").style.bottom = ""
+					document.getElementById("peakingframe").style.top = "-10"
+				} else {
+					document.getElementById("peakingframe").style.bottom = "-10"
+					document.getElementById("peakingframe").style.top = ""
+				}
+				document.getElementById("zestpod").id = "zestypod"
+				setTimeout(function(){
+					document.getElementById("zestypod").id = "zestpod"
+				}, 300);			}
+			window.onload = loadFunction;
 		</script>
 	
 </body>
 <footer>
-	<div class="peak" id="peakingimage">
-		<a href="https://boards.4channel.org/sp/catalog#s=/147/" target="_blank" rel="noopener noreferrer">
-			<script>
-				var peaknumber = getRandomInt(1,18)
-				document.write('<img height="auto" width="100%" src="media/' + peaknumber + '.png">')
-				if (peaknumber == 17){
-					document.getElementById("peakingimage").style.top = "-10"
-				}
-			</script>
+	<div class="peak" id="peakingframe">
+		<a id="peakingimage" href="https://boards.4channel.org/sp/catalog#s=/147/" target="_blank" rel="noopener noreferrer">
 		</a>
 	  </div>
 

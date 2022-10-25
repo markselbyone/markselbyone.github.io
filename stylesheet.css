@@ -87,17 +87,31 @@ body {
   
   #zestpod {
 	width: 30vh;
+	cursor: pointer;
 	animation: hover 3s ;
 	animation-timing-function: linear;
 	animation-iteration-count: infinite;
   }
 	
   @keyframes hover {
-	from {transform: translateY(0px); }
+	from {transform: translateY(1px); }
 	50% {transform: translateY(8px); }
 	to {transform: translateY(0px); }
   }
   
+  #zestypod {
+	width: 30vh;
+	animation: zestup 0.075s ;
+	animation-timing-function: linear;
+	animation-iteration-count: 10;
+  }
+	
+  @keyframes zestup {
+	from {transform: translateY(0px); }
+	50% {transform: translateY(8px); }
+	to {transform: translateY(0px); }
+  }
+
   
   .loading {
 	align-self: center;
@@ -143,7 +157,6 @@ body {
 	margin-left: 0;
 	padding-left: 0;
 	left: 0px;
-	bottom: -10px;
 	z-index: 1;
 	width: 10%;
   }
@@ -165,7 +178,12 @@ body {
 	}
 	#zestpod {
 		width: 20vh;
-		margin-top: 70px;
-		margin-bottom: 70px;
+		margin-top: 20%;
+		margin-bottom: 10px;
+	}
+	#zestypod {
+		width: 20vh;
+		margin-top: 20%;
+		margin-bottom: 10px;
 	}
 	}
