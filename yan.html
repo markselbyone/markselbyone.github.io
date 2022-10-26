@@ -6,7 +6,6 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="default">
 	<meta name="theme-color" content="#EEF2FF">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"></meta>
-	<meta http-equiv="Content-Security-Policy" content="frame-src https://www.youtube.com/">
 	<link rel="stylesheet" href="stylesheetyan.css">
 	<link rel="icon" href="media/favicon.ico" sizes="32x32"/>
 	<link rel="shortcut icon" href="media/favicon.ico">
@@ -15,12 +14,12 @@
 <body>
 <div class="container flex-center">
 	<div class="item title">/Yan's Tour Diary/</div>
-	<div class="item outer" style="margin-bottom:20px;"><iframe width="560" height="315" src="https://www.youtube.com/embed/dSTinEISpkU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-	<br><br>Mr. Rob's visit to Yan's house turns out to be not quite what the Tiger had expected.</div>
+	<div class="item outer" style="margin-bottom:20px;"><img class="yanimg" src="images/yan0.jpg" width="100%" style="float:left;">
+	</div>
     <div class="item outer">
     <span style="color: #117743;font-weight: 700;">Anonymous</span> Sat 15 Jan 2022 13:30:34 No.116783066 
     <div class="item inner">
-        <img class="yanimg" src="images/yan1.jpg" width="25%" style="float:left;padding-right:2%;padding-bottom:10px;padding-right:20px;">
+        <img class="yanimg" src="images/yan1.jpg" onclick="imgexpandFunction(this)" style="width:25%;float:left;padding-right:2%;padding-bottom:10px;padding-right:20px;">
         <span class="greentext" style="vertical-align:top;">>day 28<br>>the skeleton man eat the last of my Honey Nut, even though I write "BINGTAO" on box. when I ask him about it, he just smile.<br>>go up to my Lego room and see that my 4000 piece Lego rollercoaster is destroy. I know it was him, but no prove it.<br>>try to find Coochie but nowhere to be found. as if Cat just disappear. later I see clump of fur on Rob pants. <br>>each day I become more misery. Ava as well. Rob only smile.</span>
         </div>
     </div>
@@ -38,6 +37,13 @@
 
 
     <script>
+		function imgexpandFunction(e) {
+			if (e.style.width="25%") {
+				e.style.width="100%"
+			}
+			} 
+		
+
         function getRandomInt(min, max) {
 			  min = Math.ceil(min);
 			  max = Math.floor(max);
