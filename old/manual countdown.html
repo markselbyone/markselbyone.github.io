@@ -1,0 +1,214 @@
+<html>
+<head>
+	<title>The Zester from Leicester Homepage</title>
+	<meta name="description" content="The Home of Snooker">
+	<meta name="keywords" content="Mark Selby snooker jester zester">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="default">
+	<meta name="theme-color" content="#EEF2FF">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"></meta>
+	<meta name="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://ajax.googleapis.com/; media-src 'self'; frame-src 'self' https://archive.org/">
+	<link rel="stylesheet" href="stylesheet.css">
+	<link rel="icon" href="media/favicon.ico" sizes="32x32"/>
+	<link rel="shortcut icon" href="media/favicon.ico">
+	<link rel="apple-touch-icon" href="media/custom_icon.png">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> 
+</head>	
+<body>
+	<div id="zestpodimg" class="container center">
+		<div class="item img">
+			<img id="zestpod" src="images/2.png" onclick="rezestFunction()">
+		</div>
+	</div>
+	<div id="zesting" class="container center">
+		<div class="item loading">Zesting</div>
+	</div>
+	<div id="schedule" class="container center" style="display:none;">
+		<div class="item item-2" id="schedulerefresh"><span id="countdown"></span><span id="mfw"></span><span id="next"></span></div>
+	</div>
+
+	<script>
+		setTimeout(function(){
+			document.getElementById("zesting").style.display = "none"
+			document.getElementById("schedule").style.display = "flex"
+		}, 2000);
+	
+<!-- SET THE TOURNAMENT NAME and DATE -->
+		var tournamentName = "English Open Qualifiers"
+		var tournamentDate = "Oct 25, 2022 10:00:00"
+		var tournamentSchedule = "https://livescores.worldsnookerdata.com/Sessions/Tournament/14567/betvictor-english-open-2022-qualifiers/"
+		var nexttournamentName = "<span class='redtext'><a href='images/cocschedule.png' target='_blank' rel='noopener noreferrer'>>>Champion of Champions</a></span>"
+		var nexttournamentDate = "Monday Oct 31st"
+		var nexttournamentSchedule = "http://www.snooker.org/res/index.asp?event=1273"
+		var countDownDate = new Date(tournamentDate).getTime();
+			
+		<!-- Update the count down every 1 second -->
+		var x = setTimeout(function() {
+		
+			<!-- Get today's date and time -->
+			var now = new Date().getTime();
+			
+			<!-- Find the distance between now and the count down date -->
+			var distance = countDownDate - now;  
+			
+			<!-- Time calculations for days, hours, minutes and seconds -->
+			var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+			var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+			var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+			
+			<!-- SET TOURNAMENT START TIME -->
+			if (days <= 0 && hours < 10) {
+				document.getElementById("countdown").innerHTML = tournamentName + " today!<br><br>";
+				document.getElementById("mfw").innerHTML = "<span class='redtext'><a href='" + tournamentSchedule + "'' target='_blank' rel='noopener noreferrer'>&gt;&gt;schedule</a><br><br>";
+				document.getElementById("next").innerHTML = "Next: " + nexttournamentName + " starts " + nexttournamentDate + ".";
+			} else {
+				if ((days == 1 && hours < 10) || (days <= 1 && hours >= 10)) {
+				document.getElementById("countdown").innerHTML = tournamentName + " tomorrow!<br><br>";
+				document.getElementById("mfw").innerHTML = "<span class='redtext'><a href='" + tournamentSchedule + "'' target='_blank' rel='noopener noreferrer'>&gt;&gt;/schedule/</a></span><br><br><span class='redtext' onclick='waitscheduleFunction()' style='cursor:pointer'>&gt&gt&#47wait&#47</span>"
+				}
+				else {
+					if (hours == 1) {
+						if (days == 1) {
+							document.getElementById("countdown").innerHTML = days + " day and " + hours + " hour until " + tournamentName + ".<br><br>";
+							document.getElementById("mfw").innerHTML = "<span class='redtext' onclick='waitFunction()' style='cursor:pointer'>&gt&gt&#47wait&#47</span>"
+	
+						} else {
+							document.getElementById("countdown").innerHTML = days + " days and " + hours + " hour until " + tournamentName + ".<br><br>";
+							document.getElementById("mfw").innerHTML = "<span class='redtext' onclick='waitFunction()' style='cursor:pointer'>&gt&gt&#47wait&#47</span>"
+	
+						}
+					} else {
+						if (days == 1) {
+							document.getElementById("countdown").innerHTML = days + " day and " + hours + " hours until " + tournamentName + ".<br><br>";
+							document.getElementById("mfw").innerHTML = "<span id='tfwpop'><span class='redtext' onclick='waitFunction()' style='cursor:pointer'>&gt&gt&#47wait&#47</span></span>"
+						} else {
+							document.getElementById("countdown").innerHTML = days + " days and " + hours + " hours until " + tournamentName + ".<br><br>";
+							document.getElementById("mfw").innerHTML = "<span class='redtext' onclick='waitFunction()' style='cursor:pointer'>&gt&gt&#47wait&#47</span>"
+	
+						}
+					}
+				}
+				}
+			
+		}, 2000); 
+		function refresh() {
+			window.location.reload()
+		}
+		<!-- Random number generator for peaking.png -->
+			function getRandomInt(min, max) {
+			  min = Math.ceil(min);
+			  max = Math.floor(max);
+			  return Math.floor(Math.random() * (max - min)) + min;
+			}
+			
+			function waitFunction() {
+						document.getElementById("mfw").innerHTML = "<span class='greentext'>&gttfw waiting for snooker</span>"
+						$('title').text(">waiting for snooker")
+						$('meta[name=apple-mobile-web-app-status-bar-style]').attr('content', 'black-translucent')
+						document.getElementById("waiting").play()
+						document.getElementById("waiting").onended = randomwaitingvid
+						document.getElementById("waitingvid").style.display = "block"
+						document.body.style.background = "#000000"
+						document.getElementById("waitingscreenshot").style.display = "block"
+						document.getElementById("zestpodimg").style.opacity = "0"
+						setTimeout(function(){
+							document.getElementById("schedulerefresh").onclick = refresh
+							document.getElementById("schedulerefresh").style.cursor = "pointer"
+						}, 1000);
+				}
+			function waitscheduleFunction() {
+						document.getElementById("mfw").innerHTML = "<span class='redtext'><a href='" + tournamentSchedule + "'' target='_blank' rel='noopener noreferrer'>&gt;&gt;/schedule/</a></span><br><br><span id='greenrefresh' class='greentext'>&gttfw waiting for snooker</span>"
+						$('title').text(">waiting for snooker")
+						$('meta[name=apple-mobile-web-app-status-bar-style]').attr('content', 'black-translucent')
+						document.getElementById("waiting").play()
+						document.getElementById("waiting").onended = randomwaitingvid
+						document.getElementById("waitingvid").style.display = "block"
+						document.body.style.background = "#000000"
+						document.getElementById("waitingscreenshot").style.display = "block"
+						document.getElementById("zestpodimg").style.opacity = "0"
+						setTimeout(function(){
+							document.getElementById("greenrefresh").onclick = refresh
+							document.getElementById("greenrefresh").style.cursor = "pointer"
+						}, 1000);
+				}
+			function randomwaitingvid() {
+				document.getElementById("waitingvid").innerHTML = "<div class='item bg'><video id='waiting' src='videos/golfing_jester_bantered_fouldsy.mp4' type='video/mp4' controls playsinline style='z-index: 1;'></video></div>"
+			}
+
+
+			<!-- functions for on load and refresh -->
+			function loadFunction() {
+				var peaknumber = getRandomInt(1,18)
+				document.getElementById('peakingimage').innerHTML = '<img height="auto" width="100%" src="media/' + peaknumber + '.png">'
+				if (peaknumber == 17){
+					document.getElementById("peakingframe").style.bottom = ""
+					document.getElementById("peakingframe").style.top = "-10"
+				} else {
+					document.getElementById("peakingframe").style.bottom = "-10"
+					document.getElementById("peakingframe").style.top = ""
+				}
+				document.getElementById("zestpod").id = "zestpod"
+			}
+			function rezestFunction() {
+				var peaknumber = getRandomInt(1,18)
+				document.getElementById('peakingimage').innerHTML = '<img height="auto" width="100%" src="media/' + peaknumber + '.png">'
+				if (peaknumber == 17){
+					document.getElementById("peakingframe").style.bottom = ""
+					document.getElementById("peakingframe").style.top = "-10"
+				} else {
+					document.getElementById("peakingframe").style.bottom = "-10"
+					document.getElementById("peakingframe").style.top = ""
+				}
+				document.getElementById("zestpod").id = "zestypod"
+				setTimeout(function(){
+					document.getElementById("zestypod").id = "zestpod"
+				}, 300);			}
+			window.onload = loadFunction;
+		
+			
+		document.addEventListener("DOMContentLoaded", function(event) {
+		var button = document.getElementById('zestpod');
+		var count = 0;
+
+		button.addEventListener('click', function(e) {
+			e.preventDefault();
+			count++;
+			if(count == 20){
+					document.getElementById("schedulerefresh").innerHTML = "<span>Watch an <span class='redtext' onclick='adFunction()' style='cursor:pointer;'>>>ad</span> to support our zesting?</span>"
+				}
+			}, false); 
+		});
+
+		function adFunction() {
+			var adnumber = getRandomInt(1,3)
+			document.getElementById("zestpodimg").innerHTML = "<div class='item img'><video id='advideo' src='videos/ad" + adnumber + ".mp4' playsinline style='width: 30vh;'></div>"
+			document.getElementById("schedulerefresh").innerHTML = "<span>Let's join the snooker metaverse together!</span>"
+			document.getElementById("advideo").play()
+			document.getElementById("advideo").onended = function() {window.location.reload()}
+		}
+	</script>
+
+	<div id="waitingvid" class="container center" style="display: none;">
+		<div class="item bg">
+			<!--<video id="waiting" src="videos/1.mp4" type="video/mp4" muted playsinline></video>-->
+		</div>
+	</div>
+	<div id="waitingscreenshot" class="container center" style="display: none;">
+		<div class="item bg">
+			<!--<img id="screenshot" src="videos/1.png"></img>-->
+		</div>
+	</div>
+</body>
+<footer>
+	<div class="peak" id="peakingframe">
+		<a id="peakingimage" href="https://boards.4channel.org/sp/catalog#s=/147/" target="_blank" rel="noopener noreferrer">
+		</a>
+	  </div>
+
+	<a href="https://markselby.one/waiting">
+		<div style="position:fixed;top:0;right:0;z-index:1000;width:50px;height:50px;background:translucent;cursor: default;"></div>
+	</a>
+
+</footer>
+</html>

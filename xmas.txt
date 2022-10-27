@@ -1,0 +1,159 @@
+#dark theme
+stylesheetdark.css
+
+#xmas zestpod
+<img id="zestpod" src="images/2.gif" onclick="rezestFunction()">
+
+#jingle in rezest func
+document.getElementById('jingle').play();
+
+#jingle mp3
+<audio id="jingle"><source src="media/jingle.mp3"></audio>
+
+#snow
+	<div>
+		<div class="snowflake">
+		?
+		</div>
+		<div class="snowflake">
+		?
+		</div>
+		<div class="snowflake">
+		?
+		</div>
+		<div class="snowflake">
+		?
+		</div>
+		<div class="snowflake">
+		?
+		</div>
+		<div class="snowflake">
+		?
+		</div>
+		<div class="snowflake">
+		?
+		</div>
+		<div class="snowflake">
+		?
+		</div>
+		<div class="snowflake">
+		?
+		</div>
+		<div class="snowflake">
+		?
+		</div>
+		<div class="snowflake">
+			?
+		</div>
+		<div class="snowflake">
+			?
+		</div>
+		<div class="snowflake">
+		?
+		</div>
+		<div class="snowflake">
+		?
+		</div>
+		<div class="snowflake">
+		?
+		</div>
+		<div class="snowflake">
+		?
+		</div>
+		<div class="snowflake">
+		?
+		</div>
+		<div class="snowflake">
+		?
+		</div>
+		<div class="snowflake">
+		?
+		</div>
+		<div class="snowflake">
+		?
+		</div>
+		<div class="snowflake">
+		?
+		</div>
+		<div class="snowflake">
+		?
+		</div>
+		<div class="snowflake">
+			?
+			</div>
+		<div class="snowflake">
+			?
+		</div>
+		<div class="snowflake">
+			?
+			</div>
+			<div class="snowflake">
+			?
+			</div>
+			<div class="snowflake">
+			?
+			</div>
+			<div class="snowflake">
+			?
+			</div>
+			<div class="snowflake">
+			?
+			</div>
+			<div class="snowflake">
+			?
+			</div>
+			<div class="snowflake">
+			?
+			</div>
+			<div class="snowflake">
+			?
+			</div>
+			<div class="snowflake">
+			?
+			</div>
+			<div class="snowflake">
+			?
+			</div>
+			<div class="snowflake">
+				?
+			</div>
+			<div class="snowflake">
+				?
+			</div>
+			<div class="snowflake">
+			?
+			</div>
+			<div class="snowflake">
+			?
+			</div>
+			<div class="snowflake">
+			?
+			</div>
+			<div class="snowflake">
+			?
+			</div>
+			<div class="snowflake">
+			?
+			</div>
+			<div class="snowflake">
+			?
+			</div>
+			<div class="snowflake">
+			?
+			</div>
+			<div class="snowflake">
+			?
+			</div>
+			<div class="snowflake">
+			?
+			</div>
+			<div class="snowflake">
+			?
+			</div>
+			<div class="snowflake">
+				?
+				</div>
+			<div class="snowflake">
+				?
+			</div>
+	</div>

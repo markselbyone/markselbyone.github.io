@@ -118,7 +118,7 @@ body {
   }
   .loading:after {
 	display: inline-block;
-	animation: dotty steps(1,end) 2s infinite;
+	animation: dotty steps(1,end) 1.5s infinite;
 	content: '';
   }
   @keyframes dotty {
@@ -158,7 +158,7 @@ body {
 	margin-left: 0;
 	padding-left: 0;
 	left: 0px;
-	z-index: 1;
+	z-index: 2;
 	width: 10%;
   }
   
