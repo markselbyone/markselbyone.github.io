@@ -8,7 +8,7 @@ stylesheetdark.css
 document.getElementById('jingle').play();
 
 #jingle mp3
-<audio id="jingle"><source src="media/jingle.mp3"></audio>
+<audio id="jingle" src="media/jingle.mp3" style="display:none;"></audio>
 
 #snow
 	<div>
