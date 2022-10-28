@@ -28,6 +28,8 @@
 	</div>
 
 	<script>
+		window.onload = loadFunction;
+		
 		setTimeout(function(){
 			document.getElementById("zesting").style.display = "none"
 			document.getElementById("schedule").style.display = "flex"
@@ -45,12 +47,13 @@ In this scenario, the second event displays as "today" even after it has finishe
 	var enddistance = Date.parse(myObj[i].EndDate) - now + 86400000
 	var startdays = Math.floor(startdistance / (1000 * 60 * 60 * 24));
 	var enddays = Math.floor(enddistance / (1000 * 60 * 60 * 24));
+	var nexttournament = myObj[i+1]
 	
 	function nextfunction() {
-			if ((Math.floor((Date.parse(myObj[i+1].StartDate) - now + 86400000)/ (1000 * 60 * 60 * 24))) < 1) {
-				return "<br><br>" + myObj[i+1].Name + " also today!<br><a href='http://www.snooker.org/res/index.asp?template=24&event=" + myObj[i+1].ID + "' target='_blank' rel='noopener noreferrer'>>>schedule</a>"
-			} else if ((Math.floor((Date.parse(myObj[i+1].StartDate) - now + 86400000)/ (1000 * 60 * 60 * 24))) >= 1) {
-				return "<br><br>Next: " + "<a href='http://www.snooker.org/res/index.asp?template=24&event=" + myObj[i+1].ID + "' target='_blank' rel='noopener noreferrer'>>>" + myObj[i+1].Name + "</a> starts in " + Math.floor((Date.parse(myObj[i+1].StartDate) - now + 86400000)/ (1000 * 60 * 60 * 24)) + " day(s)." 
+			if ((Math.floor((Date.parse(nexttournament.StartDate) - now + 86400000)/ (1000 * 60 * 60 * 24))) < 1) {
+				return "<br><br>" + nexttournament.Name + " also today!<br><a href='http://www.snooker.org/res/index.asp?template=24&event=" + nexttournament.ID + "' target='_blank' rel='noopener noreferrer'>>>schedule</a>"
+			} else if ((Math.floor((Date.parse(nexttournament.StartDate) - now + 86400000)/ (1000 * 60 * 60 * 24))) >= 1) {
+				return "<br><br>Next: " + "<a href='http://www.snooker.org/res/index.asp?template=24&event=" + nexttournament.ID + "' target='_blank' rel='noopener noreferrer'>>>" + nexttournament.Name + "</a> starts in " + Math.floor((Date.parse(nexttournament.StartDate) - now + 86400000)/ (1000 * 60 * 60 * 24)) + " day(s)." 
 			}
 		};
 
@@ -119,9 +122,7 @@ In this scenario, the second event displays as "today" even after it has finishe
 				setTimeout(function(){
 					document.getElementById("zestypod").id = "zestpod"
 				}, 300);			
-		};
-		window.onload = loadFunction;
-		
+		};		
 			
 		document.addEventListener("DOMContentLoaded", function(event) {
 		var button = document.getElementById('zestpod');
