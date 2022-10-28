@@ -60,31 +60,26 @@ body {
   }
   a:link {
 	color: #d00;
+	text-decoration: underline;
   }
   /* visited link */
   a:visited {
 	color: #d00;
+	text-decoration: underline;
   }
   
   /* mouse over link */
   a:hover {
 	color: #d00;
+	text-decoration: underline;
   }
   
   /* selected link */
   a:active {
 	color: #d00;
+	text-decoration: underline;
   }
-  
-  <!-- fadein/pop not used atm -->
-  .greentext.fadein {
-	  animation: fadein 3s steps(1, end) 1;
-  }
-    @keyframes fadein {
-	0% { opacity: 0; }
-	100% { opacity: 1; }
-  }
-  
+
   #zestpod {
 	width: 30vh;
 	cursor: pointer;
@@ -147,7 +142,7 @@ body {
 	left: 0px;
 	top: 0px;
 	z-index: -2;
-	pointer-events: none;"
+	pointer-events: none;
   }
 
  

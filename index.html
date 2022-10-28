@@ -24,7 +24,7 @@
 		<div class="item loading">Zesting</div>
 	</div>
 	<div id="schedule" class="container center" style="display:none;">
-		<div class="item item-2"><span id="countdown"></span></div>
+		<div class="item item-2"><span id="countdown"></span><span id="next"></span></div>
 	</div>
 
 	<script>
@@ -46,16 +46,17 @@ In this scenario, the second event displays as "today" even after it has finishe
 	var startdays = Math.floor(startdistance / (1000 * 60 * 60 * 24));
 	var enddays = Math.floor(enddistance / (1000 * 60 * 60 * 24));
 	
-	if (myObj[i].Tour == "main" && startdays <= 0 && enddays >= 0) {
-		document.getElementById("countdown").innerHTML = "<a href='http://www.snooker.org/res/index.asp?template=24&event=" + myObj[i].ID + "' target='_blank' rel='noopener noreferrer'>>>" + myObj[i].Name + "</a> today!"; 
-		function nextfunction() {
+	function nextfunction() {
 			if ((Math.floor((Date.parse(myObj[i+1].StartDate) - now + 86400000)/ (1000 * 60 * 60 * 24))) < 1) {
 				return "<br><br>" + myObj[i+1].Name + " also today!<br><a href='http://www.snooker.org/res/index.asp?template=24&event=" + myObj[i+1].ID + "' target='_blank' rel='noopener noreferrer'>>>schedule</a>"
 			} else if ((Math.floor((Date.parse(myObj[i+1].StartDate) - now + 86400000)/ (1000 * 60 * 60 * 24))) >= 1) {
 				return "<br><br>Next: " + "<a href='http://www.snooker.org/res/index.asp?template=24&event=" + myObj[i+1].ID + "' target='_blank' rel='noopener noreferrer'>>>" + myObj[i+1].Name + "</a> starts in " + Math.floor((Date.parse(myObj[i+1].StartDate) - now + 86400000)/ (1000 * 60 * 60 * 24)) + " day(s)." 
 			}
 		};
-		document.getElementById("countdown").innerHTML += nextfunction();
+
+	if (myObj[i].Tour == "main" && startdays <= 0 && enddays >= 0) {
+		document.getElementById("countdown").innerHTML = "<a href='http://www.snooker.org/res/index.asp?template=24&event=" + myObj[i].ID + "' target='_blank' rel='noopener noreferrer'>>>" + myObj[i].Name + "</a> today!"; 
+		document.getElementById("next").innerHTML = nextfunction();
 		break;
 	} else if (myObj[i].Tour == "main" && startdays >= 0 && enddays >= 0) {
 		document.getElementById("countdown").innerHTML = startdays + " day(s) until " + myObj[i].Name + ".<br><br><span class='greentext' onclick='waitFunction()' style='cursor:pointer;'>>waiting for snooker</span>"; 
@@ -63,19 +64,18 @@ In this scenario, the second event displays as "today" even after it has finishe
 	} else if (startdays < 0 && enddays < 0) {
 		document.getElementById("countdown").innerHTML = "Snooker's over for this season...<br><br><span class='greentext'>>waiting all summer for snooker</span>";
 	}
-	
-	}		function refresh() {
-			window.location.reload()
-		}
-		<!-- Random number generator for peaking.png -->
-			function getRandomInt(min, max) {
-			  min = Math.ceil(min);
-			  max = Math.floor(max);
-			  return Math.floor(Math.random() * (max - min)) + min;
-			}
+	};
+
+	function refresh() {
+		window.location.reload()
+	};
+	function getRandomInt(min, max) {
+		min = Math.ceil(min);
+		max = Math.floor(max);
+		return Math.floor(Math.random() * (max - min)) + min;
+	};
 			
-			function waitFunction() {
-				
+		function waitFunction() {
 						document.getElementById("screenshot").src = "videos/1.png"
 						document.getElementById("waiting").src = "videos/1.mp4"
 						document.getElementById("countdown").innerHTML = "<span class='greentext'>&gttfw waiting for snooker</span>"
@@ -87,14 +87,13 @@ In this scenario, the second event displays as "today" even after it has finishe
 						document.body.style.background = "#000000"
 						document.getElementById("waitingscreenshot").style.display = "block"
 						document.getElementById("zestpodimg").style.opacity = "0"
-				}
-			function randomwaitingvid() {
+		};
+		function randomwaitingvid() {
 				document.getElementById("waitingvid").innerHTML = "<div class='item bg'><video id='waiting' src='videos/golfing_jester_bantered_fouldsy.mp4' type='video/mp4' controls playsinline style='z-index: 1;'></video></div>"
-			}
+		};
 
 
-			<!-- functions for on load and refresh -->
-			function loadFunction() {
+		function loadFunction() {
 				var peaknumber = getRandomInt(1,18)
 				document.getElementById('peakingimage').innerHTML = '<img height="auto" width="100%" src="media/' + peaknumber + '.png">'
 				if (peaknumber == 17){
@@ -105,8 +104,8 @@ In this scenario, the second event displays as "today" even after it has finishe
 					document.getElementById("peakingframe").style.top = ""
 				}
 				document.getElementById("zestpod").id = "zestpod"
-			}
-			function rezestFunction() {
+		};
+		function rezestFunction() {
 				var peaknumber = getRandomInt(1,18)
 				document.getElementById('peakingimage').innerHTML = '<img height="auto" width="100%" src="media/' + peaknumber + '.png">'
 				if (peaknumber == 17){
@@ -119,8 +118,9 @@ In this scenario, the second event displays as "today" even after it has finishe
 				document.getElementById("zestpod").id = "zestypod"
 				setTimeout(function(){
 					document.getElementById("zestypod").id = "zestpod"
-				}, 300);			}
-			window.onload = loadFunction;
+				}, 300);			
+		};
+		window.onload = loadFunction;
 		
 			
 		document.addEventListener("DOMContentLoaded", function(event) {
@@ -142,7 +142,7 @@ In this scenario, the second event displays as "today" even after it has finishe
 			document.getElementById("countdown").innerHTML = "<span>Let's join the snooker metaverse together!</span>"
 			document.getElementById("advideo").play()
 			document.getElementById("advideo").onended = function() {window.location.reload()}
-		}
+		};
 	</script>
 
 	<div id="waitingvid" class="container center" style="display: none;">
