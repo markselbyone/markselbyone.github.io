@@ -192,4 +192,9 @@ body {
 		margin-top: 20%;
 		margin-bottom: 10px;
 	}
+  #cobweb {
+    left:-15% !important;
+    top:-15% !important;
+    width: 25vh !important;
+  }
 	}     
