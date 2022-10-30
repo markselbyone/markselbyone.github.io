@@ -7,7 +7,7 @@
 	<meta name="theme-color" content="#EEF2FF">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"></meta>
 	<meta name="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://ajax.googleapis.com/; media-src 'self'; frame-src 'self' https://archive.org/">
-	<link rel="stylesheet" href="stylesheetdark.css">
+	<link rel="stylesheet" href="stylesheet.css">
 	<link rel="icon" href="media/favicon.ico"/>
 	<link rel="shortcut icon" href="media/favicon.ico">
 	<link rel="apple-touch-icon" href="media/custom_icon.png">
@@ -16,7 +16,7 @@
 <body>
 	<div id="zestpodimg" class="container center">
 		<div class="item img">
-			<img id="zestpod" src="images/3.png" onclick="rezestFunction()">
+			<img id="zestpod" src="images/2.png" onclick="rezestFunction()">
 		</div>
 	</div>
 	<div id="zesting" class="container center">
@@ -117,17 +117,27 @@
 
 		function loadFunction() {
 				var peaknumber = getRandomInt(1,24)
-				document.getElementById('peakingimage').innerHTML = '<img height="auto" width="100%" src="media/11.png">'
-				document.getElementById("peakingframe").style.bottom = ""
-				document.getElementById("peakingframe").style.top = "-25"
+				document.getElementById('peakingimage').innerHTML = '<img height="auto" width="100%" src="media/' + peaknumber + '.png">'
+				if (peaknumber == 17){
+					document.getElementById("peakingframe").style.bottom = ""
+					document.getElementById("peakingframe").style.top = "-10"
+				} else {
+					document.getElementById("peakingframe").style.bottom = "0"
+					document.getElementById("peakingframe").style.top = ""
+				}
 				document.getElementById("zestpod").id = "zestpod"
 		};
 		function rezestFunction() {
 				var peaknumber = getRandomInt(1,24)
-				document.getElementById('peakingimage').innerHTML = '<img height="auto" width="100%" src="media/11.png">'
+				document.getElementById('peakingimage').innerHTML = '<img height="auto" width="100%" src="media/' + peaknumber + '.png">'
+				if (peaknumber == 17){
+					document.getElementById("peakingframe").style.bottom = ""
+					document.getElementById("peakingframe").style.top = "-10"
+				} else {
+					document.getElementById("peakingframe").style.bottom = "0"
+					document.getElementById("peakingframe").style.top = ""
+				}
 				document.getElementById("zestpod").id = "zestypod"
-				document.getElementById("peakingframe").style.bottom = ""
-				document.getElementById("peakingframe").style.top = "-25"
 				setTimeout(function(){
 					document.getElementById("zestypod").id = "zestpod"
 				}, 300);			
@@ -167,7 +177,6 @@
 		</div>
 	</div>
 	<div class="peak" id="peakingframe">
-		<img id="cobweb" src="media/cobweb.png" style="width:10%;top:-40;left:-40;position:fixed;z-index:-1;">
 		<a id="peakingimage" href="https://boards.4channel.org/sp/catalog#s=/147/" target="_blank" rel="noopener noreferrer">
 		</a>
 	  </div>
