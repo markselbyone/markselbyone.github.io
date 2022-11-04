@@ -61,8 +61,14 @@
 				} else {
 					return "<br><br><a href='https://livescores.worldsnookerdata.com/Sessions/Tournament/" + nexttournament.WorldSnookerId + "' target='_blank' rel='noopener noreferrer'>>>" + nexttournament.Name + "</a> also today!"
 				}
-			} else if (nexttour=="main" && (Math.floor((Date.parse(nexttournament.StartDate) - now + 86400000)/ (1000 * 60 * 60 * 24))) >= 1) {
-				return "<br><br>Next: " + "<a href='http://www.snooker.org/res/index.asp?template=24&event=" + nexttournament.ID + "' target='_blank' rel='noopener noreferrer'>>>" + nexttournament.Name + "</a> starts in " + Math.floor((Date.parse(nexttournament.StartDate) - now + 86400000)/ (1000 * 60 * 60 * 24)) + " day(s)." 
+			} else if (nexttour=="main" && (Math.floor((Date.parse(nexttournament.StartDate) - now + 86400000)/ (1000 * 60 * 60 * 24))) == 1) {
+				if (nexttournament.WorldSnookerId == 0) {
+					return "<br><br><a href='http://www.snooker.org/res/index.asp?template=24&event=" + nexttournament.ID + "' target='_blank' rel='noopener noreferrer'>>>" + nexttournament.Name + "</a> starts in " + Math.floor((Date.parse(nexttournament.StartDate) - now + 86400000)/ (1000 * 60 * 60 * 24)) + " day."
+				} else {
+					return "<br><br><a href='https://livescores.worldsnookerdata.com/Sessions/Tournament/" + nexttournament.WorldSnookerId + "' target='_blank' rel='noopener noreferrer'>>>" + nexttournament.Name + "</a> starts in " + Math.floor((Date.parse(nexttournament.StartDate) - now + 86400000)/ (1000 * 60 * 60 * 24)) + " day."
+				}
+			} else if (nexttour=="main" && (Math.floor((Date.parse(nexttournament.StartDate) - now + 86400000)/ (1000 * 60 * 60 * 24))) > 1) {
+				return "<br><br>Next: " + "<a href='http://www.snooker.org/res/index.asp?template=24&event=" + nexttournament.ID + "' target='_blank' rel='noopener noreferrer'>>>" + nexttournament.Name + "</a> starts in " + Math.floor((Date.parse(nexttournament.StartDate) - now + 86400000)/ (1000 * 60 * 60 * 24)) + " days." 
 			} else if (nexttour!="main" && (Math.floor((Date.parse(nexttournament.StartDate) - now + 86400000)/ (1000 * 60 * 60 * 24))) >= 1) {
 				return "" 
 			} else if (nextenddays < 0) {
