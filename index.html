@@ -63,9 +63,9 @@
 				}
 			} else if (nexttour=="main" && (Math.floor((Date.parse(nexttournament.StartDate) - now + 86400000)/ (1000 * 60 * 60 * 24))) == 1) {
 				if (nexttournament.WorldSnookerId == 0) {
-					return "<br><br><a href='http://www.snooker.org/res/index.asp?template=24&event=" + nexttournament.ID + "' target='_blank' rel='noopener noreferrer'>>>" + nexttournament.Name + "</a> starts in " + Math.floor((Date.parse(nexttournament.StartDate) - now + 86400000)/ (1000 * 60 * 60 * 24)) + " day."
+					return "<br><br><a href='http://www.snooker.org/res/index.asp?template=24&event=" + nexttournament.ID + "' target='_blank' rel='noopener noreferrer'>>>" + nexttournament.Name + "</a> starts tomorrow!"
 				} else {
-					return "<br><br><a href='https://livescores.worldsnookerdata.com/Sessions/Tournament/" + nexttournament.WorldSnookerId + "' target='_blank' rel='noopener noreferrer'>>>" + nexttournament.Name + "</a> starts in " + Math.floor((Date.parse(nexttournament.StartDate) - now + 86400000)/ (1000 * 60 * 60 * 24)) + " day."
+					return "<br><br><a href='https://livescores.worldsnookerdata.com/Sessions/Tournament/" + nexttournament.WorldSnookerId + "' target='_blank' rel='noopener noreferrer'>>>" + nexttournament.Name + "</a> starts tomorrow!"
 				}
 			} else if (nexttour=="main" && (Math.floor((Date.parse(nexttournament.StartDate) - now + 86400000)/ (1000 * 60 * 60 * 24))) > 1) {
 				return "<br><br>Next: " + "<a href='http://www.snooker.org/res/index.asp?template=24&event=" + nexttournament.ID + "' target='_blank' rel='noopener noreferrer'>>>" + nexttournament.Name + "</a> starts in " + Math.floor((Date.parse(nexttournament.StartDate) - now + 86400000)/ (1000 * 60 * 60 * 24)) + " days." 
@@ -86,7 +86,15 @@
 			document.getElementById("next").innerHTML = nextfunction();
 			break;	
 		}
-	} else if (startdays >= 0 && enddays >= 0) {
+	} else if (startdays == 1 && enddays >= 0) {
+		if (wstid == 0) {
+			document.getElementById("countdown").innerHTML = "<a href='http://www.snooker.org/res/index.asp?template=24&event=" + myObj[i].ID + "' target='_blank' rel='noopener noreferrer'>>>" + myObj[i].Name + "</a> starts tomorrow!<br><br><span class='greentext' onclick='waitFunction()' style='cursor:pointer;'>>waiting for snooker</span>"; 
+		break;
+		} else {
+		document.getElementById("countdown").innerHTML = "<a href='https://livescores.worldsnookerdata.com/Sessions/Tournament/" + wstid + "' target='_blank' rel='noopener noreferrer'>>>" + myObj[i].Name + "</a> starts tomorrow!<br><br><span class='greentext' onclick='waitFunction()' style='cursor:pointer;'>>waiting for snooker</span>"; 
+		break;
+		}
+	} else if (startdays >= 1 && enddays >= 0) {
 		document.getElementById("countdown").innerHTML = startdays + " day(s) until " + "<a href='http://www.snooker.org/res/index.asp?template=24&event=" + myObj[i].ID + "' target='_blank' rel='noopener noreferrer'>>>" + myObj[i].Name + "</a>.<br><br><span class='greentext' onclick='waitFunction()' style='cursor:pointer;'>>waiting for snooker</span>"; 
 		break;
 	} else if (startdays < 0 && enddays < 0) {
