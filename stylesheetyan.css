@@ -98,11 +98,13 @@ body {
 	text-decoration: underline;
   }
   a:link {
-	color: #d00;
+	color: #000000;
+	text-decoration: none;
   }
   /* visited link */
   a:visited {
-	color: #d00;
+	color: #000000;
+	text-decoration: none;
   }
   
   /* mouse over link */
@@ -190,6 +192,10 @@ body {
 	left: 0px;
 	z-index: 1;
 	width: 10%;
+  }
+
+  .yanimg:hover {
+width: 100%;
   }
   
   @media only screen and (max-width: 700px) {

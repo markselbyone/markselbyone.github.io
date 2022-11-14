@@ -130,26 +130,42 @@
 
 
 		function loadFunction() {
-				var peaknumber = getRandomInt(1,24)
-				document.getElementById('peakingimage').innerHTML = '<img height="auto" width="100%" src="media/' + peaknumber + '.png">'
+				var peaknumber = getRandomInt(20,25)
 				if (peaknumber == 17){
 					document.getElementById("peakingframe").style.bottom = ""
 					document.getElementById("peakingframe").style.top = "-10"
+					document.getElementById("peakingframe").style.left = "0"
+					document.getElementById("peakingframe").innerHTML = '<a id="peakingimage" href="https://boards.4channel.org/sp/catalog#s=/147/" target="_blank" rel="noopener noreferrer"><img height="auto" width="100%" src="media/17.png"></a>'
+				} else if (peaknumber == 24){
+					document.getElementById("peakingframe").style.bottom = "0"
+					document.getElementById("peakingframe").style.top = ""
+					document.getElementById("peakingframe").style.left = "90%"
+					document.getElementById("peakingframe").innerHTML = '<a id="peakingimage" href="yan"><img height="auto" width="100%" src="media/24.png"></a>'
 				} else {
 					document.getElementById("peakingframe").style.bottom = "0"
 					document.getElementById("peakingframe").style.top = ""
+					document.getElementById("peakingframe").style.left = "0"
+					document.getElementById("peakingframe").innerHTML = '<a id="peakingimage" href="https://boards.4channel.org/sp/catalog#s=/147/" target="_blank" rel="noopener noreferrer"><img height="auto" width="100%" src="media/' + peaknumber + '.png"></a>'
 				}
 				document.getElementById("zestpod").id = "zestpod"
 		};
 		function rezestFunction() {
-				var peaknumber = getRandomInt(1,24)
-				document.getElementById('peakingimage').innerHTML = '<img height="auto" width="100%" src="media/' + peaknumber + '.png">'
+				var peaknumber = getRandomInt(20,25)
 				if (peaknumber == 17){
 					document.getElementById("peakingframe").style.bottom = ""
 					document.getElementById("peakingframe").style.top = "-10"
+					document.getElementById("peakingframe").style.left = "0"
+					document.getElementById("peakingframe").innerHTML = '<a id="peakingimage" href="https://boards.4channel.org/sp/catalog#s=/147/" target="_blank" rel="noopener noreferrer"><img height="auto" width="100%" src="media/17.png"></a>'
+				} else if (peaknumber == 24){
+					document.getElementById("peakingframe").style.bottom = "0"
+					document.getElementById("peakingframe").style.top = ""
+					document.getElementById("peakingframe").style.left = "90%"
+					document.getElementById("peakingframe").innerHTML = '<a id="peakingimage" href="yan"><img height="auto" width="100%" src="media/24.png"></a>'
 				} else {
 					document.getElementById("peakingframe").style.bottom = "0"
 					document.getElementById("peakingframe").style.top = ""
+					document.getElementById("peakingframe").style.left = "0"
+					document.getElementById("peakingframe").innerHTML = '<a id="peakingimage" href="https://boards.4channel.org/sp/catalog#s=/147/" target="_blank" rel="noopener noreferrer"><img height="auto" width="100%" src="media/' + peaknumber + '.png"></a>'
 				}
 				document.getElementById("zestpod").id = "zestypod"
 				setTimeout(function(){
@@ -191,7 +207,7 @@
 		</div>
 	</div>
 	<div class="peak" id="peakingframe">
-		<a id="peakingimage" href="https://boards.4channel.org/sp/catalog#s=snooker" target="_blank" rel="noopener noreferrer">
+		<a id="peakingimage" href="https://boards.4channel.org/sp/catalog#s=/147/" target="_blank" rel="noopener noreferrer">
 		</a>
 	  </div>
 
