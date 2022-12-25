@@ -89,14 +89,14 @@
 		}
 	} else if (startdays == 1 && enddays >= 0) {
 		if (wstid == 0) {
-			document.getElementById("countdown").innerHTML = "<a href='http://www.snooker.org/res/index.asp?template=24&event=" + myObj[i].ID + "' target='_blank' rel='noopener noreferrer'>>>" + myObj[i].Name + "</a> starts tomorrow!<br><br><span class='greentext' onclick='waitFunction()' style='cursor:pointer;'>>waiting for snooker</span>"; 
+			document.getElementById("countdown").innerHTML = "<a href='http://www.snooker.org/res/index.asp?template=24&event=" + myObj[i].ID + "' target='_blank' rel='noopener noreferrer'>>>" + myObj[i].Name + "</a> starts tomorrow!<br><br><span class='greentext' onclick='waitFunction()' style='cursor:pointer;'>>merry christmas!</span>"; 
 		break;
 		} else {
-		document.getElementById("countdown").innerHTML = "<a href='https://livescores.worldsnookerdata.com/Sessions/Tournament/" + wstid + "' target='_blank' rel='noopener noreferrer'>>>" + myObj[i].Name + "</a> starts tomorrow!<br><br><span class='greentext' onclick='waitFunction()' style='cursor:pointer;'>>waiting for snooker</span>"; 
+		document.getElementById("countdown").innerHTML = "<a href='https://livescores.worldsnookerdata.com/Sessions/Tournament/" + wstid + "' target='_blank' rel='noopener noreferrer'>>>" + myObj[i].Name + "</a> starts tomorrow!<br><br><span class='greentext' onclick='waitFunction()' style='cursor:pointer;'>>merry christmas</span>"; 
 		break;
 		}
 	} else if (startdays >= 1 && enddays >= 0) {
-		document.getElementById("countdown").innerHTML = startdays + " days until " + "<a href='http://www.snooker.org/res/index.asp?template=24&event=" + myObj[i].ID + "' target='_blank' rel='noopener noreferrer'>>>" + myObj[i].Name + "</a>.<br><br><span class='greentext' onclick='waitFunction()' style='cursor:pointer;'>>waiting for snooker</span>"; 
+		document.getElementById("countdown").innerHTML = startdays + " days until " + "<a href='http://www.snooker.org/res/index.asp?template=24&event=" + myObj[i].ID + "' target='_blank' rel='noopener noreferrer'>>>" + myObj[i].Name + "</a>.<br><br><span class='greentext' onclick='waitFunction()' style='cursor:pointer;'>>merry christmas!</span>"; 
 		break;
 	} else if (startdays < 0 && enddays < 0) {
 		document.getElementById("countdown").innerHTML = "Snooker's over for this season...<br><br><span class='greentext'>>waiting all summer for snooker</span>";
@@ -113,20 +113,13 @@
 	};
 			
 		function waitFunction() {
-						document.getElementById("screenshot").src = "videos/1.png"
-						document.getElementById("waiting").src = "videos/1.mp4"
-						document.getElementById("countdown").innerHTML = "<span class='greentext'>&gttfw waiting for snooker</span>"
-						$('title').text(">waiting for snooker")
-						$('meta[name=apple-mobile-web-app-status-bar-style]').attr('content', 'black-translucent')
-						document.getElementById("waiting").play()
-						document.getElementById("waiting").onended = randomwaitingvid
+						randomwaitingvid()
 						document.getElementById("waitingvid").style.display = "block"
 						document.body.style.background = "#000000"
-						document.getElementById("waitingscreenshot").style.display = "block"
 						document.getElementById("zestpodimg").style.opacity = "0"
 		};
 		function randomwaitingvid() {
-				document.getElementById("waitingvid").innerHTML = "<div class='item bg'><video id='waiting' src='videos/golfing_jester_bantered_fouldsy.mp4' type='video/mp4' controls playsinline style='z-index: 1;'></video></div>"
+				document.getElementById("waitingvid").innerHTML = "<div class='item bg'><video id='waiting' src='videos/xmas.mp4' type='video/mp4' controls playsinline style='z-index: 2;'></div>"
 		};
 
 
