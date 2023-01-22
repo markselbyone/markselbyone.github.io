@@ -120,12 +120,11 @@
 						document.getElementById("waiting").play()
 						document.getElementById("waiting").onended = randomwaitingvid
 						document.getElementById("waitingvid").style.display = "block"
-						document.body.style.background = "#000000"
 						document.getElementById("waitingscreenshot").style.display = "block"
 						document.getElementById("zestpodimg").style.opacity = "0"
 		};
 		function randomwaitingvid() {
-				document.getElementById("waitingvid").innerHTML = "<div class='item bg'><video id='waiting' src='videos/selby.webm' type='video/webm' controls playsinline style='z-index: 1;'></video></div>"
+				document.getElementById("waitingvid").innerHTML = "<div class='item bg'><video id='waiting' src='videos/lofiloopy.mp4' type='video/mp4' autoplay loop controls playsinline style='z-index: 1;'></video></div>"
 		};
 
 
@@ -160,7 +159,7 @@
 					document.getElementById("peakingframe").style.bottom = "0"
 					document.getElementById("peakingframe").style.top = ""
 					document.getElementById("peakingframe").style.left = "90%"
-					document.getElementById("peakingframe").innerHTML = '<a id="peakingimage" href="yan"><img height="auto" width="100%" src="media/24.png"></a>'
+					document.getElementById("peakingframe").innerHTML = '<a id="peakingimage" href="yan2"><img height="auto" width="100%" src="media/24.png"></a>'
 				} else {
 					document.getElementById("peakingframe").style.bottom = "0"
 					document.getElementById("peakingframe").style.top = ""
