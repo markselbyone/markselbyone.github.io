@@ -1,58 +1,162 @@
 <html>
 <head>
-	<title>>waiting</title>
-	<meta name="description" content=">waiting for snooker">
-	<meta name="keywords" content="Mark Selby snooker jester zester">
+	<title>Zester from Leicester | Home</title>
+	<meta name="description" content="The Home of Snooker">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="default">
 	<meta name="theme-color" content="#EEF2FF">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"></meta>
+	<meta name="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://ajax.googleapis.com/; media-src 'self'; frame-src 'self' https://archive.org/">
 	<link rel="stylesheet" href="stylesheet.css">
-	<link rel="icon" href="media/favicon.ico" sizes="32x32"/>
+	<link rel="icon" href="media/favicon.ico"/>
 	<link rel="shortcut icon" href="media/favicon.ico">
 	<link rel="apple-touch-icon" href="media/custom_icon.png">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> 
 </head>	
-<style>
-	.video-container {
-	position:relative;
-	padding-bottom:56.25%;
-	padding-top:30px;
-	height:0;
-	overflow:hidden;
-}
-
-.video-container iframe, .video-container object, .video-container embed {
-	position:absolute;
-	top:0;
-	left:0;
-	width:100%;
-	height:100%;
-}
-</style>
 <body>
+	<div id="zestpodimg" class="container center">
+		<div class="item img" style="opacity:0;cursor:auto;">
+			<img id="zestpod" src="images/2.png" style="cursor:auto">
+		</div>
+	</div>
+	<div id="zesting" class="container center">
+		<div class="item loading">Zesting</div>
+	</div>
+	<div id="schedule" class="container center" style="display:none;">
+		<div class="item item-2"><span id="countdown"></span><span id="next"></span></div>
+	</div>
 
-<script>		
-<!-- Random number generator for peaking.png -->
+	<script>
+		window.onload = loadFunction;
+		
+		setTimeout(function(){
+
+		}, 1500);
+	
+
+
+	function refresh() {
+		window.location.reload()
+	};
 	function getRandomInt(min, max) {
-	  min = Math.ceil(min);
-	  max = Math.floor(max);
-	  return Math.floor(Math.random() * (max - min)) + min;
-	}
-</script>
-	<div class ="container center">
-	<div class="video-container">
-		<iframe id="waiting" style="z-index:1;" src="https://archive.org/embed/2014-final-day-2" width="640" height="480" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>			
+		min = Math.ceil(min);
+		max = Math.floor(max);
+		return Math.floor(Math.random() * (max - min)) + min;
+	};
+			
+		function waitFunction() {
+						document.getElementById("screenshot").src = "videos/1.png"
+						document.getElementById("waiting").src = "videos/1.mp4"
+						document.getElementById("countdown").innerHTML = "<span class='greentext'>&gttfw waiting for snooker</span>"
+						$('title').text(">waiting for snooker")
+						$('meta[name=apple-mobile-web-app-status-bar-style]').attr('content', 'black-translucent')
+						document.getElementById("waiting").play()
+						document.getElementById("waitingsong").innerHTML = "<div class='item bg'><audio id='song' src='videos/jimloop.ogg' type='audio/ogg' loop></div>"
+						document.getElementById("waiting").onended = randomwaitingvid
+						document.getElementById("waitingvid").style.display = "block"
+						document.getElementById("waitingscreenshot").style.display = "block"
+						document.getElementById("zestpodimg").style.opacity = "0"
+		};
+		function randomwaitingvid() {
+				document.getElementById("waitingvid").innerHTML = "<div class='item bg'><video id='waiting' src='videos/jimloop.webm' type='video/webm' autoplay loop playsinline style='z-index: 1;'></div>"
+				document.getElementById("song").volume = "0.5"
+				document.getElementById("song").play()
+		};
+
+
+		function loadFunction() {
+			document.getElementById("zesting").style.display = "none"
+			document.getElementById("schedule").style.display = "flex"
+			document.getElementById("countdown").innerHTML = "<span class='greentext' onclick='waitFunction()' style='cursor:pointer;'>>waiting for snooker</span>"; 
+				var peaknumber = getRandomInt(1,37)
+				if (peaknumber == 17){
+					document.getElementById("peakingframe").style.bottom = ""
+					document.getElementById("peakingframe").style.top = "-10"
+					document.getElementById("peakingframe").style.left = "0"
+					document.getElementById("peakingframe").innerHTML = '<a id="peakingimage" href="https://boards.4channel.org/sp/catalog#s=/147/" target="_blank" rel="noopener noreferrer"><img height="auto" width="100%" src="media/17.png"></a>'
+				} else if (peaknumber == 24){
+					document.getElementById("peakingframe").style.bottom = "0"
+					document.getElementById("peakingframe").style.top = ""
+					document.getElementById("peakingframe").style.left = "90%"
+					document.getElementById("peakingframe").innerHTML = '<a id="peakingimage" href="yan"><img height="auto" width="100%" src="media/24.png"></a>'
+				} else {
+					document.getElementById("peakingframe").style.bottom = "0"
+					document.getElementById("peakingframe").style.top = ""
+					document.getElementById("peakingframe").style.left = "0"
+					document.getElementById("peakingframe").innerHTML = '<a id="peakingimage" href="https://boards.4channel.org/sp/catalog#s=/147/" target="_blank" rel="noopener noreferrer"><img height="auto" width="100%" src="media/' + peaknumber + '.png"></a>'
+				}
+				document.getElementById("zestpod").id = "zestpod"
+		};
+		function rezestFunction() {
+				var peaknumber = getRandomInt(1,38)
+				if (peaknumber == 17){
+					document.getElementById("peakingframe").style.bottom = ""
+					document.getElementById("peakingframe").style.top = "-10"
+					document.getElementById("peakingframe").style.left = "0"
+					document.getElementById("peakingframe").innerHTML = '<a id="peakingimage" href="https://boards.4channel.org/sp/catalog#s=/147/" target="_blank" rel="noopener noreferrer"><img height="auto" width="100%" src="media/17.png"></a>'
+				} else if (peaknumber == 24){
+					document.getElementById("peakingframe").style.bottom = "0"
+					document.getElementById("peakingframe").style.top = ""
+					document.getElementById("peakingframe").style.left = "90%"
+					document.getElementById("peakingframe").innerHTML = '<a id="peakingimage" href="yan"><img height="auto" width="100%" src="media/24.png"></a>'
+				} else {
+					document.getElementById("peakingframe").style.bottom = "0"
+					document.getElementById("peakingframe").style.top = ""
+					document.getElementById("peakingframe").style.left = "0"
+					document.getElementById("peakingframe").innerHTML = '<a id="peakingimage" href="https://boards.4channel.org/sp/catalog#s=/147/" target="_blank" rel="noopener noreferrer"><img height="auto" width="100%" src="media/' + peaknumber + '.png"></a>'
+				}
+				document.getElementById("zestpod").id = "zestypod"
+				setTimeout(function(){
+					document.getElementById("zestypod").id = "zestpod"
+				}, 300);			
+		};		
+			
+		document.addEventListener("DOMContentLoaded", function(event) {
+		var button = document.getElementById('zestpod');
+		var count = 0;
+
+		button.addEventListener('click', function(e) {
+			e.preventDefault();
+			count++;
+			if(count == 50){
+					document.getElementById("countdown").innerHTML = "<span>Watch an <span class='redtext' onclick='adFunction()' style='cursor:pointer;'>>>ad</span> to support our zesting?</span>"
+					document.getElementById("next").style.display = "none"
+				}
+			}, false); 
+		});
+
+		function adFunction() {
+			var adnumber = getRandomInt(1,3)
+			document.getElementById("zestpodimg").innerHTML = "<div class='item img'><video id='advideo' src='videos/ad" + adnumber + ".mp4' playsinline style='width: 30vh;'></div>"
+			document.getElementById("countdown").innerHTML = "<span>Let's join the snooker metaverse together!</span>"
+			document.getElementById("advideo").play()
+			document.getElementById("advideo").onended = function() {window.location.reload()}
+		};
+	</script>
+
+	<div id="waitingvid" class="container center" style="display: none;">
+		<div class="item bg">
+			<video id="waiting" src="" type="video/mp4" muted playsinline>
+		</div>
 	</div>
+	<div id="waitingscreenshot" class="container center" style="display: none;">
+		<div class="item bg">
+			<img id="screenshot" src="">
+		</div>
 	</div>
-</body>
-<footer>
-	<div class="peak">
-		<a href="https://boards.4channel.org/sp/catalog#s=/147/" target="_blank" rel="noopener noreferrer">
-			<script>
-				document.write('<img height="auto" width="100%" src="media/' + getRandomInt(1, 11) + '.png">')
-			</script>
+	<div id="waitingsong" class="container center" style="display: none;">
+		<div class="item bg">
+			<audio id="song" src="" type="audio/ogg">
+		</div>
+	</div>
+	<div class="peak" id="peakingframe">
+		<a id="peakingimage" href="https://boards.4channel.org/sp/catalog#s=/147/" target="_blank" rel="noopener noreferrer">
 		</a>
 	  </div>
-</footer>
+
+	<a href="https://markselby.one/waiting">
+		<div style="position:fixed;top:0;right:0;z-index:1000;width:50px;height:50px;background:translucent;cursor: default;"></div>
+	</a>
+
+</body>
 </html>
