@@ -81,9 +81,9 @@ body {
   }
 
   #zestpod {
-	width: 30vh;
+	width: 50vh;
 	cursor: pointer;
-	animation: hover 3s ;
+/*	animation: hover 3s ; */
 	animation-timing-function: linear;
 	animation-iteration-count: infinite;
   }
@@ -95,7 +95,7 @@ body {
   }
   
   #zestypod {
-	width: 30vh;
+	width: 50vh;
 	animation: zestup 0.075s ;
 	animation-timing-function: linear;
 	animation-iteration-count: 10;
