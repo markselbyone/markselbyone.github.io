@@ -116,7 +116,13 @@ body {
 	animation: dotty steps(1,end) 1.5s infinite;
 	content: '';
   }
-
+  @keyframes dotty {
+	0%   { content: '\a0\a0\a0'; }
+	25%  { content: '.\a0\a0'; }
+	50%  { content: '..\a0'; }
+	75%  { content: '...'; }
+	100% { content: '\a0\a0\a0'; }
+  }
   
   #waiting {
 	  width: 100vw; /* Could also use width: 100%; */
