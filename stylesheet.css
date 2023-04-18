@@ -85,9 +85,16 @@ body {
   #zestpod {
 	width: 40vh;
 	cursor: pointer;
+	animation: hover 3s ;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
   }
 	
-
+  @keyframes hover {
+	from {transform: translateY(1px); }
+	50% {transform: translateY(8px); }
+	to {transform: translateY(0px); }
+  }
   
   #zestypod {
 	width: 40vh;
